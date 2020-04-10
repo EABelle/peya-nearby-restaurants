@@ -3,22 +3,31 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run prod",
-    "build": "npm-run-all clean transpile cpviews",
+    "start:server": "npm run prod",
+    "build:server": "npm-run-all clean transpile cpviews",
     "server": "node dist/server/bin/www",
-    "dev": "NODE_ENV=development npm-run-all build server",
-    "prod": "NODE_ENV=production npm-run-all build server",
-    "transpile": "babel ./server --out-dir dist/server",
-    "cpviews": "cp -r ./server/views dist/server/views",
+    "dev": "NODE_ENV=development npm-run-all build:server server",
+    "prod": "NODE_ENV=production npm-run-all build:server server",
+    "transpile": "babel server --out-dir dist/server",
+    "cpviews": "cp -r server/views dist/server/views",
     "clean": "rimraf dist/server",
     "watch:dev": "nodemon",
-    "test": "jest"
+    "test:server": "jest",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.5",
+    "@material-ui/core": "^4.9.9",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -30,6 +39,9 @@
     "morgan": "~1.9.1",
     "nodemon": "^2.0.3",
     "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
     "redis": "^3.0.2",
     "rimraf": "^3.0.2",
     "universal-cookie": "^4.0.3"
@@ -52,10 +64,24 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "jest": "^25.3.0"
+    "eslint": "^6.8.0"
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
