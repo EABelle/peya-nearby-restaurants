@@ -1,13 +1,13 @@
 import Axios from "axios";
+import config from "../config";
 
 const userClient = Axios.create({
-    baseURL: `${process.env.CLIENT_BASE_URL}myAccount`,
+    baseURL: `${config.baseURL}myAccount`,
 });
 
 export default class UserClient {
 
     static getAccount(token) {
-        console.log(token);
         return userClient.get('', {headers: {
             Authorization: token
             }})

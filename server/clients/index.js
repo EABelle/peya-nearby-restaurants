@@ -1,8 +1,9 @@
 import Axios from "axios";
 import AppTokenClient from "./AppTokenClient";
+import config from "../config";
 
 const appClient = Axios.create({
-    baseURL: process.env.CLIENT_BASE_URL,
+    baseURL: config.baseURL,
 });
 
 appClient.interceptors.response.use(null, (error) => {

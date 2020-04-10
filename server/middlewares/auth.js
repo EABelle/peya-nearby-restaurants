@@ -37,7 +37,6 @@ export const verifyAppToken = (req, res, next) => {
                     next();
                 }))})
                 .catch((e) => {
-                    console.log(e);
                     res.error(e);
                 });
         });

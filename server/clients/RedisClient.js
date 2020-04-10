@@ -1,7 +1,7 @@
 import redis from 'redis';
 
 const client = redis.createClient({
-    host: 'redis',
+    host: process.env.NODE_ENV === 'development' ? 'localhost' : 'redis',
     port: 6379
 });
 client.on('connect', () => {

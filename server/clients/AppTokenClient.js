@@ -1,7 +1,8 @@
 import Axios from "axios";
+import config from "../config";
 
 const tokenClient = Axios.create({
-    baseURL: `${process.env.CLIENT_BASE_URL}tokens`,
+    baseURL: `${config.baseURL}tokens`,
 });
 
 export default class AppTokenClient {

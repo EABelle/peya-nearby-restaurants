@@ -1,4 +1,5 @@
 import "@babel/polyfill";
+import dotenv from 'dotenv';
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
@@ -6,9 +7,8 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index';
 import authRouter from './routes/auth';
-import { config } from 'dotenv';
 import {verifyAppToken, verifyUserToken} from "./middlewares/auth";
-config();
+dotenv.config();
 
 const app = express();
 
