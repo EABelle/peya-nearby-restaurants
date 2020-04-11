@@ -1,4 +1,4 @@
-import LoginClient from '../client/LoginClient';
+import LoginClient from '../api/LoginClient';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 

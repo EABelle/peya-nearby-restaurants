@@ -1,4 +1,4 @@
-import AccountClient from '../client/AccountClient';
+import AccountClient from '../api/AccountClient';
 
 export const getMyAccount = () => {
     return AccountClient.getMyAccount();
