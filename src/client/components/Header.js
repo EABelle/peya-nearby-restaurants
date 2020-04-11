@@ -4,7 +4,7 @@ import {
     Typography
 } from '@material-ui/core';
 import logo from "../header-logo.svg";
-import { getMyAccount } from "../services/AccountService";
+import AccountClient from "../api/AccountClient";
 import {logout} from "../services/LoginService";
 
 const useStyles = makeStyles(theme => ({
@@ -40,7 +40,7 @@ export default () => {
     const [keepLoggedIn, setKeepLoggedIn] = useState(true);
 
     useEffect(() => {
-        getMyAccount()
+        AccountClient.getMyAccount()
             .then((accountData) => {
                 setUserName(`${accountData.name} ${accountData.lastName}`);
             })
@@ -52,7 +52,6 @@ export default () => {
     },[]);
 
     useEffect(() => {
-        console.log(keepLoggedIn);
         if(!keepLoggedIn) {
             logout();
         }

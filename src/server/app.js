@@ -8,7 +8,8 @@ import logger from 'morgan';
 import indexRouter from './routes';
 import authRouter from './routes/auth';
 import myAccountRouter from './routes/myAccount';
-import {verifyAppToken, verifyUserToken} from "./middlewares/auth";
+import restaurantsRouter from './routes/restaurants';
+import { verifyAppToken } from "./middlewares/auth";
 dotenv.config();
 
 const app = express();
@@ -34,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(verifyAppToken);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', myAccountRouter);
-app.use(verifyUserToken);
+app.use('/api/restaurants', restaurantsRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

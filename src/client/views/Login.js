@@ -41,7 +41,6 @@ export default (props) => {
         event.preventDefault();
         setError(false);
         await login(email, password);
-        console.log(isAuthenticated());
         if(isAuthenticated()) {
             setRedirectToIndex(true);
         } else {
