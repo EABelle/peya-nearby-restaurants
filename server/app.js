@@ -20,6 +20,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// cors
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Authorization, Content-Type, Accept, X-Api-Key');
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(verifyAppToken);

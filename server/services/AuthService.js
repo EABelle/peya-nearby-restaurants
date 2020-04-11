@@ -6,7 +6,6 @@ export default class AuthService {
 
     static async login(userName, password, appToken) {
         const userToken = await LoginClient.login(userName, password, appToken);
-        console.log(userToken);
         const userData = await UserClient.getAccount(userToken);
         await redisClient.set(`USER_${userData.id}`, userToken, ((err) => {
             if(err) {

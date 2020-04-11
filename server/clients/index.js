@@ -10,7 +10,8 @@ appClient.interceptors.response.use(null, (error) => {
     if (error.config && error.response && error.response.data.code === 'INVALID_TOKEN') {
         return AppTokenClient.getAppToken().then((token) => {
             error.config.headers.Authorization = token;
-            appClient.request(error.config);
+            console.log('INTERCEPT');
+            return appClient.request(error.config);
         });
     }
 

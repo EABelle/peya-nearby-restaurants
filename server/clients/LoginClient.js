@@ -13,6 +13,7 @@ export default class LoginClient {
                     password
                 }
             })
-            .then(response => response.data.access_token);
+            .then(response => response.data.access_token)
+
     }
 }

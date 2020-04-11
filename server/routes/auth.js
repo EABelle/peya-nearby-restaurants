@@ -9,6 +9,10 @@ router.post('/', function(req, res) {
       .login(userName, password, appToken)
       .then(userToken => {
         return res.send(userToken);
+      })
+      .catch(error => {
+          const { status, data } = error.response;
+          res.status(status).send(data);
       });
 });
 
