@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
         height: '70vh',
         overflow: 'auto'
     },
+    restaurantContainer: {
+        width: '100%',
+    },
     restaurant: {
         width: '100%',
     }
@@ -50,7 +53,7 @@ export default () => {
                     <List className={classes.list}>
                         {
                             restaurants.map(restaurant => (
-                                <ListItem alignItems="flex-start" key={restaurant.id}>
+                                <ListItem alignItems="flex-start" className={classes.restaurantContainer} key={restaurant.id}>
                                     <Restaurant className={classes.restaurant} details={restaurant} />
                                 </ListItem>
                             ))

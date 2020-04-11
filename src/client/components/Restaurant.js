@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import ReactStars from 'react-rating-stars-component'
 import {Star, StarBorder, StarHalf} from "@material-ui/icons";
+import Typography from '@material-ui/core/Typography';
 
 const logoBaseURL = 'https://d1v73nxuzaqxgd.cloudfront.net/restaurants/';
 const buildLink = (link) => `http://www.pedidosya.com.uy/restaurantes/montevideo/${link}-menu`;
@@ -14,10 +15,14 @@ const useStyles = makeStyles(theme => ({
     },
     card: {
         display: 'flex',
-        padding: 12
+        padding: 12,
+        width: '100%'
     },
     info: {
         paddingLeft: 12
+    },
+    a: {
+        textDecoration: 'none',
     }
 }));
 
@@ -36,8 +41,10 @@ export default ({details}) => {
                 <a
                     href={buildLink(details.link)}
                     rel="noopener noreferrer"
-                    target="_blank">
-                    {details.name}
+                    target="_blank"
+                    className={classes.a}
+                >
+                    <Typography variant="h6">{details.name}</Typography>
                 </a>
                 <ReactStars
                     count={5}
@@ -49,8 +56,8 @@ export default ({details}) => {
                     halfIcon={<StarHalf />}
                     fullIcon={<Star />}
                 />
-                {"Llega en " + details.deliveryTimeMaxMinutes + " minutos"}
-                {details.topCategories}
+                <Typography variant="body1">{"Llega en " + details.deliveryTimeMaxMinutes + " minutos"}</Typography>
+                <Typography variant="caption">{details.topCategories}</Typography>
             </div>
         </Card>
     )
