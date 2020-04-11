@@ -1,6 +1,6 @@
 import RestaurantsClient from "../clients/RestaurantsClient";
 
-const DEFAULT_FIELDS = 'name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates';
+const DEFAULT_FIELDS = 'id, name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates';
 
 export default class RestaurantsService {
 

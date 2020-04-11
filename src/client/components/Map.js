@@ -3,14 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from "@material-ui/core/LinearProgress";
 import RestaurantsClient from "../api/RestaurantsClient";
 import GoogleMapReact from "google-map-react";
-import {MyLocation, Restaurant} from "@material-ui/icons";
+import {MyLocation, Restaurant as RestaurantIcon} from "@material-ui/icons";
 
 const useStyles = makeStyles(theme => ({
     marker: {
         color: '#b8000a'
     },
     mapContainer: {
-        height: '100vh',
+        height: '70vh',
         width: '100%'
     }
 }));
@@ -21,11 +21,10 @@ const Loading = props => (
         : null
 );
 
-export default () => {
+export default ({restaurants = [], onSetRestaurants, onSelectRestaurant}) => {
 
     const classes = useStyles();
 
-    const [restaurants, setRestaurants] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const [center, setCenter] = useState({
@@ -40,7 +39,7 @@ export default () => {
         RestaurantsClient.getRestaurants(`${lat},${lng}`)
             .then(restaurants => {
                 setCenter({ lat, lng });
-                setRestaurants(restaurants);
+                onSetRestaurants(restaurants);
                 setLoading(false);
             });
     };
@@ -65,11 +64,13 @@ export default () => {
                     }
                     {
                         restaurants.map(restaurant => (
-                            <Restaurant
+                            <RestaurantIcon
+                                key={'map'+restaurant.id}
                                 className={classes.marker}
                                 lat={restaurant.lat}
                                 lng={restaurant.lng}
                                 text="My Marker"
+                                onClick={() => onSelectRestaurant(restaurant.id)}
                             />
                         ))
                     }
