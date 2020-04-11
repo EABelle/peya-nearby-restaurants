@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes';
 import authRouter from './routes/auth';
+import myAccountRouter from './routes/myAccount';
 import {verifyAppToken, verifyUserToken} from "./middlewares/auth";
 dotenv.config();
 
@@ -22,16 +23,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // cors
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
+  res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Authorization, Content-Type, Accept, X-Api-Key');
-  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(verifyAppToken);
 app.use('/api/login', authRouter);
+app.use('/api/myAccount', myAccountRouter);
 app.use(verifyUserToken);
 app.use('/', indexRouter);
 

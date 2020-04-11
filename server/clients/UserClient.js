@@ -11,6 +11,5 @@ export default class UserClient {
         return userClient.get('', {headers: {
             Authorization: token
             }})
-            .then(response => response.data)
     }
 }

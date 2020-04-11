@@ -1,23 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import {
-    Button,
-    Card,
-    Container,
-    TextField
-} from '@material-ui/core';
-import logo from "../logo.svg";
+import { Container } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({}));
+const useStyles = makeStyles(theme => ({
+}));
 
 export default () => {
-
 
     const classes = useStyles();
 
     return (
-        <Container component="main">
-            Restaurants
-        </Container>
+        <Container>Search Restaurants</Container>
     )
 };

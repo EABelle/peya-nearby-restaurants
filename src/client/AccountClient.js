@@ -3,9 +3,14 @@ import config from "./config";
 
 const axios = Axios.create({
   baseURL: config.baseURL,
+  withCredentials: true
+
 });
 
-export async function login(userName, password) {
-  const response = await axios.post('/login', { userName, password });
+
+async function getMyAccount() {
+  const response = await axios.get('/myAccount');
   return response.data;
 }
+
+export default { getMyAccount };

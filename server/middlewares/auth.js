@@ -21,6 +21,7 @@ const getUserToken = (token) => new Promise((resolve, reject) =>
 );
 
 export const verifyAppToken = (req, res, next) => {
+
     return getAppToken()
         .then(token => {
             res.locals.appToken = token;

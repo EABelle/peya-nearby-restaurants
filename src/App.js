@@ -10,13 +10,19 @@ import {
     Switch
 } from "react-router-dom";
 import { isAuthenticated } from "./services/LoginService";
+import Header from "./components/Header";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) => (
             isAuthenticated()
-                ? <Component {...props} />
+                ? (
+                    <div>
+                        <Header/>
+                        <Component {...props} />
+                    </div>
+                )
                 : (
                     <Redirect to={{
                         pathname: '/login',
