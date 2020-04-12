@@ -4,6 +4,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import RestaurantsClient from "../api/RestaurantsClient";
 import GoogleMapReact from "google-map-react";
 import {MyLocation, Restaurant as RestaurantIcon} from "@material-ui/icons";
+import LoadingBar from "./LoadingBar";
 
 const useStyles = makeStyles(theme => ({
     marker: {
@@ -14,12 +15,6 @@ const useStyles = makeStyles(theme => ({
         width: '100%'
     }
 }));
-
-const Loading = props => (
-    props.show
-        ? <LinearProgress />
-        : null
-);
 
 export default ({restaurants = [], onSetRestaurants, onSelectRestaurant, location}) => {
 
@@ -81,7 +76,7 @@ export default ({restaurants = [], onSetRestaurants, onSelectRestaurant, locatio
                         ))
                     }
                 </GoogleMapReact>
-                <Loading show={loading} />
+                <LoadingBar show={loading} />
             </div>
     )
 };

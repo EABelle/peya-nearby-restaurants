@@ -1,5 +1,4 @@
 import appClient from "./index";
-
 export default class RestaurantsClient {
 
     static getRestaurants(queryParams) {

@@ -4,15 +4,15 @@ const router = express.Router();
 
 router.post('/', function(req, res) {
   const { userName, password } = req.body;
-  const { appToken } = res.locals;
   AuthService
-      .login(userName, password, appToken)
+      .login(userName, password)
       .then(userToken => {
         return res.send(userToken);
       })
       .catch(error => {
           const { status, data } = error.response;
-          res.status(status).send(data);
+          const { code } = data;
+          res.status(code === 'USR_INVALID_CREDENTIALS' ? 401 : status).send(data);
       });
 });
 

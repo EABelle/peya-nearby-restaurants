@@ -9,6 +9,7 @@ const appClient = Axios.create({
 appClient.interceptors.response.use(null, (error) => {
     if (error.config && error.response && error.response.data.code === 'INVALID_TOKEN') {
         return AppTokenClient.getAppToken().then((token) => {
+            appClient.defaults.headers.Authorization = token;
             error.config.headers.Authorization = token;
             console.log('INTERCEPT');
             return appClient.request(error.config);

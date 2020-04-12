@@ -2,12 +2,9 @@ import appClient from "./index";
 
 export default class LoginClient {
 
-    static login(userName, password, appToken) {
+    static login(userName, password) {
         return appClient
             .get('tokens', {
-                headers: {
-                    Authorization: appToken
-                },
                 params: {
                     userName,
                     password

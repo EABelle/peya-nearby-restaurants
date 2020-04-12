@@ -9,6 +9,7 @@ import {
 import logo from "../logo.svg";
 import {isAuthenticated, login} from "../services/LoginService";
 import { Redirect } from 'react-router-dom';
+import LoadingBar from "../components/LoadingBar";
 
 
 const useStyles = makeStyles(theme => ({
@@ -21,31 +22,47 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
         flexDirection: 'column'
     },
-    title: {
-
-    },
     loginCard: {
         padding: '20px 24px'
+    },
+    errorContainer: {
+        width: '100%',
+        margin: '12px auto',
+        textAlign: 'center',
+        color: '#f52F41'
     }
 }));
+
+const getErrorMessage = (code) => (
+    code
+        ? code === 401
+            ? 'Usuario o contraseña incorrectos'
+            : 'Ocurrió un error'
+        : null
+);
 
 export default (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirectToIndex, setRedirectToIndex] = useState(isAuthenticated());
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setError(false);
-        await login(email, password);
+        setError(null);
+        setLoading(true);
+        try {
+            await login(email, password);
+        } catch(e) {
+            setError(e.response ? e.response.status : 500);
+        }
         if(isAuthenticated()) {
             setRedirectToIndex(true);
-        } else {
-            setError(true);
         }
+        setLoading(false);
     };
 
     const handleEmailChange = event => {
@@ -58,9 +75,8 @@ export default (props) => {
 
     const classes = useStyles();
 
-    const { from } = props.location.state || { from: { pathname: '/search-restaurants' } };
     if (redirectToIndex === true) {
-        return <Redirect to={from} />;
+        return <Redirect to={{ pathname: '/search-restaurants' }} />;
     }
 
     return (
@@ -108,6 +124,10 @@ export default (props) => {
                             Ingresar
                         </Button>
                     </form>
+                    <LoadingBar show={loading} />
+                    <div className={classes.errorContainer}>
+                        { getErrorMessage(error) }
+                    </div>
                 </Card>
             </div>
         </Container>

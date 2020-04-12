@@ -4,32 +4,20 @@ import './App.css';
 import Login from "./views/Login";
 import SearchRestaurants from "./views/SearchRestaurants";
 import {
-    BrowserRouter as Router,
-    Redirect,
+    BrowserRouter as Router, Redirect,
     Route,
     Switch
 } from "react-router-dom";
-import { isAuthenticated } from "./services/LoginService";
 import Header from "./components/Header";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) => (
-            isAuthenticated()
-                ? (
-                    <div>
-                        <Header/>
-                        <Component {...props} />
-                    </div>
-                )
-                : (
-                    <Redirect to={{
-                        pathname: '/login',
-                        state: { from: props.location },
-                    }}
-                    />
-                )
+            <div>
+                <Header onLogout={ () => {} } />
+                <Component {...props} />
+            </div>
         )}
     />
 );
@@ -52,6 +40,7 @@ function App() {
                     <Switch>
                         <Route path="/login" component={Login} />
                         <PrivateRoute path="/search-restaurants" component={SearchRestaurants} />
+                        <Redirect to={{ pathname: '/search-restaurants' }} />
                     </Switch>
                 </Router>
             </ThemeProvider>

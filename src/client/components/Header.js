@@ -5,7 +5,16 @@ import {
 } from '@material-ui/core';
 import logo from "../header-logo.svg";
 import AccountClient from "../api/AccountClient";
-import {logout} from "../services/LoginService";
+import {isAuthenticated, logout} from "../services/LoginService";
+import {Redirect} from "react-router-dom";
+
+const RedirectToLogin = props => (
+    <Redirect to={{
+        pathname: '/login',
+        state: { from: props.location },
+    }}
+    />
+)
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -33,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default () => {
+export default ( props ) => {
 
     const classes = useStyles();
     const [userName, setUserName] = useState();
@@ -51,25 +60,26 @@ export default () => {
             });
     },[]);
 
-    useEffect(() => {
-        if(!keepLoggedIn) {
-            logout();
-        }
-    });
-
     const handleClickLogout = () => {
-        setKeepLoggedIn(false);
+        logout();
+        setKeepLoggedIn(isAuthenticated());
     };
 
     return (
-        <header className={classes.header}>
-            <div className={classes.items}>
-                <img src={logo} className={classes.logo} alt="logo" />
-                <div className={classes.userContainer}>
-                    <Typography variant="subtitle1">{ userName }</Typography>
-                    <Typography variant="caption" className={classes.logout} onClick={handleClickLogout}>Cerrar Sesión</Typography>
-                </div>
-            </div>
-        </header>
+        keepLoggedIn
+            ? (
+                <header className={classes.header}>
+                    <div className={classes.items}>
+                        <img src={logo} className={classes.logo} alt="logo" />
+                        <div className={classes.userContainer}>
+                            <Typography variant="subtitle1">{ userName }</Typography>
+                            <Typography variant="caption" className={classes.logout} onClick={handleClickLogout}>Cerrar Sesión</Typography>
+                        </div>
+                    </div>
+                </header>
+            )
+            : (
+                <RedirectToLogin location={props.location} />
+            )
     )
 };
