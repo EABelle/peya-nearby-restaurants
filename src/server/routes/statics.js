@@ -3,12 +3,12 @@ import UserService from "../services/UserService";
 const router = express.Router();
 
 router.get('/', function(req, res) {
-  UserService.getAccount(req.cookies.py_auth_token)
+  UserService.getLoggedInAccounts()
       .then(response => {
-          return res.send(response);
+          return res.send(response.data);
       })
       .catch(() => {
-          res.sendStatus(403);
+          res.sendStatus(500);
       });
 });
 

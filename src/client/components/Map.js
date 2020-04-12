@@ -21,15 +21,21 @@ const Loading = props => (
         : null
 );
 
-export default ({restaurants = [], onSetRestaurants, onSelectRestaurant}) => {
+export default ({restaurants = [], onSetRestaurants, onSelectRestaurant, location}) => {
 
     const classes = useStyles();
+
+    const paramsString = location.search;
+    const params = new URLSearchParams(paramsString);
+
+    const lat = Number(params.get('lat'));
+    const lng = Number(params.get('lng'));
 
     const [loading, setLoading] = useState(false);
 
     const [center, setCenter] = useState({
-        lat: -34.900826,
-        lng: -56.158180
+        lat: lat || -34.900826,
+        lng: lng || -56.158180
     });
     const zoom = 14;
 

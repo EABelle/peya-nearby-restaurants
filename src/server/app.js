@@ -9,6 +9,7 @@ import indexRouter from './routes';
 import authRouter from './routes/auth';
 import myAccountRouter from './routes/myAccount';
 import restaurantsRouter from './routes/restaurants';
+import staticsRouter from './routes/statics';
 import { verifyAppToken } from "./middlewares/auth";
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/stats', staticsRouter);
 app.use(verifyAppToken);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', myAccountRouter);

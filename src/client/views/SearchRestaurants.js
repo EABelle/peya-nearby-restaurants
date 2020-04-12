@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default () => {
+export default (props) => {
 
     const classes = useStyles();
 
@@ -36,7 +36,7 @@ export default () => {
 
     const handleSetRestaurants = restaurants => {
         setRestaurants(restaurants);
-    }
+    };
 
     return (
         <Container component="main" className={classes.container}>
@@ -47,6 +47,7 @@ export default () => {
                         onSetRestaurants={handleSetRestaurants}
                         onSelectRestaurant={() => {}}
                         className={classes.map}
+                        location={props.location}
                     />
                 </Grid>
                 <Grid item xs={5}>
