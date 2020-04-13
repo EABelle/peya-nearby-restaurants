@@ -1,7 +1,19 @@
 version: "3"
 services:
-  web:
-    build: .
+  nginx:
+    build:
+      dockerfile: Dockerfile.nginx
+      context: ""
+    env_file:
+      - .env
+    ports:
+      - 80:80
+    depends_on:
+      - server
+  server:
+    build:
+      dockerfile: Dockerfile.node
+      context: ""
     env_file:
       - .env
     ports:
