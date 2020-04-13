@@ -6,12 +6,13 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes';
-import authRouter from './routes/auth';
-import myAccountRouter from './routes/myAccount';
-import restaurantsRouter from './routes/restaurants';
-import staticsRouter from './routes/statics';
-import { verifyAppToken } from "./middlewares/auth";
-import { setRestaurantsTTL } from "./middlewares/resLocals";
+import authRouter from './routes/LoginRouter';
+import myAccountRouter from './routes/MyAccountRouter';
+import restaurantsRouter from './routes/RestaurantsRouter';
+import staticsRouter from './routes/StatisticsRouter';
+import configRouter from './routes/ConfigRouter';
+import verifyAppToken from "./middlewares/verifyAppToken";
+import { setRestaurantsTTL } from "./middlewares/cache";
 
 dotenv.config();
 
@@ -37,10 +38,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(verifyAppToken);
 app.use(setRestaurantsTTL);
-app.use('/api/stats', staticsRouter);
+app.use('/api/statistics', staticsRouter);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', myAccountRouter);
 app.use('/api/restaurants', restaurantsRouter);
+app.use('/api/config', configRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

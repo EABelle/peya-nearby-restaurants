@@ -2,7 +2,7 @@ import { getAsync, setAsync } from '../data/RedisClient';
 import AppTokenClient from "../httpClients/AppTokenClient";
 import appClient from "../httpClients";
 
-export const verifyAppToken = async (req, res, next) => {
+const verifyAppToken = async (req, res, next) => {
     try {
         let appToken = await getAsync('APP_TOKEN');
         if (!appToken) {
@@ -15,3 +15,5 @@ export const verifyAppToken = async (req, res, next) => {
         return res.error(e);
     }
 };
+
+export default verifyAppToken;

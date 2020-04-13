@@ -1,6 +1,7 @@
 import UserClient from "../httpClients/UserClient";
-import RedisClient, {getAsync, keysAsync} from '../data/RedisClient';
-export default class UserService {
+import RedisClient from '../data/RedisClient';
+import CacheService from "./CacheService";
+export default class AccountService {
 
     static async getAccount(token) {
         try {
@@ -18,13 +19,8 @@ export default class UserService {
         }
     }
 
-    static async getLoggedInAccount(key) {
-        const user = await getAsync(key);
-        return JSON.parse(user);
-    }
-
     static async getLoggedInAccounts() {
-        const keys = await keysAsync('USER_*');
-        return await Promise.all(keys.map( key => UserService.getLoggedInAccount(key)));
+        const keys = await CacheService.getLoggedInAccountKeys();
+        return await Promise.all(keys.map( key => CacheService.getLoggedInAccount(key)));
     }
 }
