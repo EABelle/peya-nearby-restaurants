@@ -1,4 +1,4 @@
-import redisClient from '../clients/RedisClient';
+import redisClient from '../data/RedisClient';
 
 export const setRestaurantsTTL = (req, res, next) => {
 

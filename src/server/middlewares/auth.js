@@ -1,35 +1,17 @@
-import redisClient from '../clients/RedisClient';
-import AppTokenClient from "../clients/AppTokenClient";
-import appClient from "../clients";
+import { getAsync, setAsync } from '../data/RedisClient';
+import AppTokenClient from "../httpClients/AppTokenClient";
+import appClient from "../httpClients";
 
-const getAppToken = () => new Promise((resolve, reject) =>
-  redisClient.get('APP_TOKEN', (err, appToken) => {
-    if (err || !appToken) {
-      reject();
+export const verifyAppToken = async (req, res, next) => {
+    try {
+        let appToken = await getAsync('APP_TOKEN');
+        if (!appToken) {
+            appToken = await AppTokenClient.getAppToken();
+            setAsync('APP_TOKEN', appToken)
+        }
+        appClient.defaults.headers.Authorization = appToken;
+        return next();
+    } catch(e) {
+        return res.error(e);
     }
-      appClient.defaults.headers.Authorization = appToken;
-      resolve(appToken);
-  })
-);
-
-export const verifyAppToken = (req, res, next) => {
-
-    return getAppToken()
-        .then(() => {
-            next();
-        })
-        .catch(() => {
-            AppTokenClient.getAppToken()
-                .then(appToken => {
-                    appClient.defaults.headers.Authorization = appToken;
-                    return redisClient.set('APP_TOKEN', appToken, ((err) => {
-                    if(err) {
-                        throw err;
-                    }
-                    next();
-                }))})
-                .catch((e) => {
-                    res.error(e);
-                });
-        });
 };

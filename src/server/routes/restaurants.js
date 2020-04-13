@@ -1,16 +1,18 @@
 import express from 'express';
 import RestaurantsService from "../services/RestaurantsService";
-import redisClient from "../clients/RedisClient";
+import redisClient from "../data/RedisClient";
 const router = express.Router();
+
+const DEFAULT_FIELDS = 'id, name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates';
 
 router.get('/', function(req, res) {
     const { point, offset, max, country, fields } = req.query;
       RestaurantsService.getRestaurants({
           point,
-          offset,
-          max,
-          country,
-          fields
+          offset: offset || 0,
+          max: max || 20,
+          country: country || 1,
+          fields: fields || DEFAULT_FIELDS
       }, res.locals.restaurantsTTL)
           .then(response => {
               return res.send(response.data);
