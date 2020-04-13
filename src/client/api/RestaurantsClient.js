@@ -3,7 +3,6 @@ import config from "./config";
 
 const axios = Axios.create({
   baseURL: config.baseURL,
-  withCredentials: true
 });
 
 async function getRestaurants(point, offset = 0, max = 20, country = 1) {
