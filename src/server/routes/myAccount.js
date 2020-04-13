@@ -7,8 +7,8 @@ router.get('/', function(req, res) {
       .then(response => {
           return res.send(response);
       })
-      .catch(() => {
-          res.sendStatus(403);
+      .catch((e) => {
+          res.error(e);
       });
 });
 

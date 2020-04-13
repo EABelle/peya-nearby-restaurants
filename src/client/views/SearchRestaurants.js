@@ -21,11 +21,21 @@ export default (props) => {
     const { search } = props.location;
     const params = new URLSearchParams(search);
     const center = {
-        lat: Number(params.get('lat')) || -34.900826,
-        lng: Number(params.get('lng')) || -56.158180
+        lat: Number(params.get('lat')),
+        lng: Number(params.get('lng'))
     };
 
-    console.log(search);
+    if (!search) {
+        navigator.geolocation.getCurrentPosition(
+            ({ coords }) => {
+                props.history.push({
+                    pathname: '/search-restaurants',
+                    search: `?lat=${coords.latitude}&lng=${coords.longitude}`
+                });
+            },
+            error => console.log(error)
+        );
+    }
 
     useEffect(() => {
         searchRestaurants(center);

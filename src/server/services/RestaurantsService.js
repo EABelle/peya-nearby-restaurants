@@ -33,6 +33,9 @@ export default class RestaurantsService {
     }
 
     static async getRestaurants({point, offset = 0, max = 20, country = 1, fields = DEFAULT_FIELDS}, restaurantsTTL) {
+        redisClient.hmset('SEARCH', point, JSON.stringify({ point, offset, max, country, fields, ttl: restaurantsTTL }), () => {
+            redisClient.expire('SEARCH', 60 * 60);
+        });
         const cachedRestaurants = await RestaurantsService.getRestaurantsFromCache(point);
         if(cachedRestaurants) {
             return cachedRestaurants;

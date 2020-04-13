@@ -24,7 +24,7 @@ export default class UserService {
                 if (err) {
                     reject(err);
                 }
-                resolve (user);
+                resolve (JSON.parse(user));
             }));
     }
 
@@ -35,8 +35,7 @@ export default class UserService {
                     reject(err);
                 }
                 const users = await Promise.all(keys.map( key => UserService.getLoggedInAccount(key)));
-                console.log(users);
-                resolve (keys);
+                resolve(users);
         }));
     }
 }

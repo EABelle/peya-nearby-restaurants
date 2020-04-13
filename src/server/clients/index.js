@@ -11,7 +11,6 @@ appClient.interceptors.response.use(null, (error) => {
         return AppTokenClient.getAppToken().then((token) => {
             appClient.defaults.headers.Authorization = token;
             error.config.headers.Authorization = token;
-            console.log('INTERCEPT');
             return appClient.request(error.config);
         });
     }

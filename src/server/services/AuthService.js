@@ -6,11 +6,16 @@ export default class AuthService {
 
     static async login(userName, password) {
         const userToken = await LoginClient.login(userName, password);
-        const userData = await UserService.getAccount(userToken);
-        await redisClient.set(`USER_${userToken}`, JSON.stringify(userData), ((err) => {
+        const user = await UserService.getAccount(userToken);
+        redisClient.set(`USER_${user.id}`, JSON.stringify({ userToken, ...user}), ((err) => {
             if(err) {
                 throw err;
             }
+            redisClient.expire(`USER_${user.id}`, 60 * 60 * 24, () => {
+                if (err) {
+                    throw (err);
+                }
+            });
         }));
         return userToken;
     }
