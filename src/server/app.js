@@ -11,6 +11,8 @@ import myAccountRouter from './routes/myAccount';
 import restaurantsRouter from './routes/restaurants';
 import staticsRouter from './routes/statics';
 import { verifyAppToken } from "./middlewares/auth";
+import { setRestaurantsTTL } from "./middlewares/resLocals";
+
 dotenv.config();
 
 const app = express();
@@ -33,8 +35,9 @@ app.use((req, res, next) => {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/stats', staticsRouter);
 app.use(verifyAppToken);
+app.use(setRestaurantsTTL);
+app.use('/api/stats', staticsRouter);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', myAccountRouter);
 app.use('/api/restaurants', restaurantsRouter);

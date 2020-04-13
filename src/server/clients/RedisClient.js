@@ -5,7 +5,7 @@ const client = redis.createClient({
     port: 6379
 });
 client.on('connect', () => {
-    console.log('Redis connected');
+    client.set('TTL_RESTAURANTS', 60);
 });
 
 export default client;

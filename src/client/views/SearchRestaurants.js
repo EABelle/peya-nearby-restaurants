@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Map from "../components/Map";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Restaurant from "../components/Restaurant";
+import RestaurantsClient from "../api/RestaurantsClient";
+import RestaurantsList from "../components/RestaurantsList";
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -14,28 +13,42 @@ const useStyles = makeStyles(theme => ({
     mapContainer: {
         width: '50%'
     },
-    list: {
-        width: '100%',
-        backgroundColor: theme.palette.background.paper,
-        height: '70vh',
-        overflow: 'auto'
-    },
-    restaurantContainer: {
-        width: '100%',
-    },
-    restaurant: {
-        width: '100%',
-    }
 }));
 
 export default (props) => {
 
     const classes = useStyles();
+    const { search } = props.location;
+    const params = new URLSearchParams(search);
+    const center = {
+        lat: Number(params.get('lat')) || -34.900826,
+        lng: Number(params.get('lng')) || -56.158180
+    };
+
+    console.log(search);
+
+    useEffect(() => {
+        searchRestaurants(center);
+    }, [search]);
+
 
     const [ restaurants, setRestaurants ] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    const handleSetRestaurants = restaurants => {
-        setRestaurants(restaurants);
+    const searchRestaurants = (center) => {
+        setLoading(true);
+        RestaurantsClient.getRestaurants(`${center.lat},${center.lng}`)
+            .then(restaurants => {
+                setLoading(false);
+                setRestaurants(restaurants);
+            });
+    };
+
+    const handleSearchRestaurants = (center) => {
+        props.history.push({
+            pathname: '/search-restaurants',
+            search: `?lat=${center.lat}&lng=${center.lng}`
+        });
     };
 
     return (
@@ -44,22 +57,14 @@ export default (props) => {
                 <Grid item xs={7}>
                     <Map
                         restaurants={restaurants}
-                        onSetRestaurants={handleSetRestaurants}
-                        onSelectRestaurant={() => {}}
+                        onSearchRestaurants={handleSearchRestaurants}
                         className={classes.map}
-                        location={props.location}
+                        loading={loading}
+                        center={center}
                     />
                 </Grid>
                 <Grid item xs={5}>
-                    <List className={classes.list}>
-                        {
-                            restaurants.map(restaurant => (
-                                <ListItem alignItems="flex-start" className={classes.restaurantContainer} key={restaurant.id}>
-                                    <Restaurant className={classes.restaurant} details={restaurant} />
-                                </ListItem>
-                            ))
-                        }
-                    </List>
+                    <RestaurantsList restaurants={restaurants} loading={loading} />
                 </Grid>
             </Grid>
         </Container>

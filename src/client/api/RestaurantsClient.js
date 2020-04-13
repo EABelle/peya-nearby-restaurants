@@ -17,7 +17,7 @@ async function getRestaurants(point, offset = 0, max = 20, country = 1) {
   });
   return response.data.map(restaurant => {
     const { coordinates, ...rest } = restaurant;
-    const [ lat, lng ] = coordinates.split(',').map(v => Number(v))
+    const [ lat, lng ] = coordinates.split(',').map(v => Number(v));
     return {
       ...rest,
       lat,
