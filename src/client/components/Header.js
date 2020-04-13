@@ -46,7 +46,7 @@ export default ( props ) => {
 
     const classes = useStyles();
     const [userName, setUserName] = useState();
-    const [keepLoggedIn, setKeepLoggedIn] = useState(true);
+    const [keepLoggedIn, setKeepLoggedIn] = useState(isAuthenticated());
 
     useEffect(() => {
         AccountClient.getMyAccount()
@@ -54,8 +54,10 @@ export default ( props ) => {
                 setUserName(`${accountData.name} ${accountData.lastName}`);
             })
             .catch(err => {
-                if(err.status === 403) {
+                console.log(Object.keys(err));
+                if(err.response && err.response.status === 401) {
                     logout();
+                    setKeepLoggedIn(isAuthenticated());
                 }
             });
     },[]);

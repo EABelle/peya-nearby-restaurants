@@ -1,16 +1,15 @@
 import AccountService from "../services/AccountService";
 
-function getMyAccount(req, res) {
-    AccountService.getAccount(req.cookies.py_auth_token)
-        .then(response => {
-            return res.send(response);
-        })
-        .catch((e) => {
-            if (e.response && e.response.status) {
-                return res.sendStatus(e.response.status);
-            }
-            return res.sendStatus(500);
-        });
+async function getMyAccount(req, res) {
+    try {
+        const account = await AccountService.getAccount(req.cookies.py_auth_token);
+        return res.send(account);
+    } catch(e) {
+        if(e.response.status === 403 || (e.response.data && e.response.data.code === 'INVALID_TOKEN') ) {
+            return res.sendStatus(401);
+        }
+        return res.sendStatus(500);
+    }
 }
 
 export default { getMyAccount };

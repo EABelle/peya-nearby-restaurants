@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Map from "../components/Map";
 import RestaurantsClient from "../api/RestaurantsClient";
@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
     mapContainer: {
         width: '50%'
     },
+    title: {
+        marginBottom: 24
+    }
 }));
 
 export default (props) => {
@@ -44,13 +47,19 @@ export default (props) => {
 
     const [ restaurants, setRestaurants ] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const searchRestaurants = (center) => {
+        setError(false);
         setLoading(true);
         RestaurantsClient.getRestaurants(`${center.lat},${center.lng}`)
             .then(restaurants => {
                 setLoading(false);
                 setRestaurants(restaurants);
+            })
+            .catch(() => {
+                setLoading(false);
+                setError(true);
             });
     };
 
@@ -63,6 +72,7 @@ export default (props) => {
 
     return (
         <Container component="main" className={classes.container}>
+            <Typography variant="h4" align="left" className={classes.title}>Buscar restaurantes</Typography>
             <Grid container spacing={3}>
                 <Grid item xs={7}>
                     <Map
@@ -74,7 +84,7 @@ export default (props) => {
                     />
                 </Grid>
                 <Grid item xs={5}>
-                    <RestaurantsList restaurants={restaurants} loading={loading} />
+                    <RestaurantsList restaurants={restaurants} loading={loading} error={error} />
                 </Grid>
             </Grid>
         </Container>

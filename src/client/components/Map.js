@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import GoogleMapReact from "google-map-react";
 import {MyLocation, Restaurant as RestaurantIcon} from "@material-ui/icons";

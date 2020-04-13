@@ -24,6 +24,14 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    error: {
+        color: 'red',
+        fontWeight: 'bold'
+    },
+    warning: {
+        color: 'orange',
+        fontWeight: 'bold'
     }
 }));
 
@@ -34,17 +42,19 @@ export default (props) => {
     return (
         props.loading
             ? <CircularProgress />
-            : props.restaurants
-                ?
-                    <List className={classes.list}>
-                        {
-                            props.restaurants.map(restaurant => (
-                                <ListItem alignItems="flex-start" className={classes.restaurantContainer} key={restaurant.id}>
-                                    <Restaurant className={classes.restaurant} details={restaurant} />
-                                </ListItem>
-                            ))
-                        }
-                    </List>
-                : <div className={classes.loaderContainer}>Seleccione un punto del mapa</div>
+            : props.error
+                ? <div className={classes.error}>Ha ocurrido un error</div>
+                : props.restaurants.length
+                    ?
+                        <List className={classes.list}>
+                            {
+                                props.restaurants.map(restaurant => (
+                                    <ListItem alignItems="flex-start" className={classes.restaurantContainer} key={restaurant.id}>
+                                        <Restaurant className={classes.restaurant} details={restaurant} />
+                                    </ListItem>
+                                ))
+                            }
+                        </List>
+                    : <div className={classes.warning}>No se encontraron restaurantes abiertos. <br />Seleccione otro punto del mapa</div>
     )
 };
