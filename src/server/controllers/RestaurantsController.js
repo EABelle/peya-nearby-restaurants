@@ -1,6 +1,6 @@
 import RestaurantsService from "../services/RestaurantsService";
 
-const DEFAULT_FIELDS = 'id, name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates';
+const DEFAULT_FIELDS = 'id, name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates, opened';
 
 function getRestaurants(req, res, next) {
     if(res.locals.restaurants) {
@@ -15,7 +15,7 @@ function getRestaurants(req, res, next) {
         fields: fields || DEFAULT_FIELDS
     })
         .then(response => {
-            res.locals.restaurants = response.data;
+            res.locals.restaurants = response.data.filter(({opened}) => opened === 1);
             next();
         })
         .catch(() => {
