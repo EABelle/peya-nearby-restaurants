@@ -1,10 +1,14 @@
 import Axios from "axios";
 import config from "./config";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const axios = Axios.create({
   baseURL: config.baseURL,
-  withCredentials: true
-
+  headers: {
+    Authorization: cookies.get('py_auth_token')
+  }
 });
 
 

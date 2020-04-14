@@ -1,9 +1,17 @@
 import Axios from "axios";
 import config from "./config";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const axios = Axios.create({
   baseURL: config.baseURL,
+  headers: {
+    Authorization: cookies.get('py_auth_token')
+  }
+
 });
+
 
 async function getRestaurants(point, offset = 0, max = 20, country = 1) {
   const response = await axios.get('/restaurants', {

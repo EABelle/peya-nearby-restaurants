@@ -54,7 +54,7 @@ export default ( props ) => {
                 setUserName(`${accountData.name} ${accountData.lastName}`);
             })
             .catch(err => {
-                if(err.response && err.response.status === 401) {
+                if(err.response && err.response.status === 403) {
                     logout();
                     setKeepLoggedIn(isAuthenticated());
                 }
