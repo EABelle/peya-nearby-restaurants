@@ -9,17 +9,18 @@ const axios = Axios.create({
   headers: {
     Authorization: cookies.get('py_auth_token')
   }
-
 });
 
 
-async function getRestaurants(point, offset = 0, max = 20, country = 1) {
+async function getRestaurants(point, offset = 0, max = 20, country = 1, sortBy = 'BEST_RANKING', onlyOpen=true) {
   const response = await axios.get('/restaurants', {
     params: {
       point,
       offset,
       max,
-      country
+      country,
+      sortBy,
+      onlyOpen
     }
   });
   return response.data.map(restaurant => {

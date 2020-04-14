@@ -1,6 +1,19 @@
 import redisClient, {expireAsync, hmsetAsync} from "../data/RedisClient";
 import RestaurantsService from "../services/CacheService";
 
+function compareRankings(a, b) {
+    const ratingA = Number(a.rating);
+    const ratingB = Number(b.rating);
+    if (ratingA < ratingB){
+        return -1;
+    }
+    if (ratingA > ratingB) {
+        return 1;
+    }
+    return 0;
+}
+
+
 export const setRestaurantsTTL = (req, res, next) => {
 
     redisClient.get(`TTL_RESTAURANTS`, (err, ttl) => {
@@ -12,11 +25,23 @@ export const setRestaurantsTTL = (req, res, next) => {
     })
 };
 
-export const setRestaurantsToCache = (req, res) => {
-    return RestaurantsService
-        .setRestaurantsToCache(req.query.point, res.locals.restaurants, res.locals.restaurantsTTL)
-        .then(() => res.status(200).send([...res.locals.restaurants]))
-        .catch(() => res.sendStatus(500));
+export const setRestaurantsToCache = async (req, res) => {
+    const { sortBy, onlyOpen, offset, max } = req.query;
+    try {
+        await RestaurantsService
+            .setRestaurantsToCache(req.query.point, res.locals.restaurants, res.locals.restaurantsTTL);
+        const response = res.locals.restaurants;
+        let { data } = response;
+        if (sortBy === 'BEST_RANKING') {
+            data = data.sort(compareRankings).reverse();
+        }
+        if (onlyOpen) {
+            data = data.filter(({opened}) => opened === 1);
+        }
+        return res.status(200).send(data.slice(offset, offset + max));
+    } catch(e) {
+        return res.sendStatus(500);
+    }
 };
 
 export const setRestaurantsSearchToCache = async (req, res, next) => {
