@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import Map from "../components/Map";
 import RestaurantsClient from "../api/RestaurantsClient";
-import RestaurantsList from "../components/RestaurantsList";
+import RestaurantsView from "../components/RestaurantsView";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -44,7 +43,7 @@ export default (props) => {
         searchRestaurants(center);
     }, [search]);
 
-
+    const mobile = useMediaQuery('(max-width:1024px)');
     const [ restaurants, setRestaurants ] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -73,20 +72,15 @@ export default (props) => {
     return (
         <Container component="main" className={classes.container}>
             <Typography variant="h4" align="left" className={classes.title}>Buscar restaurantes</Typography>
-            <Grid container spacing={3}>
-                <Grid item xs={7}>
-                    <Map
-                        restaurants={restaurants}
-                        onSearchRestaurants={handleSearchRestaurants}
-                        className={classes.map}
-                        loading={loading}
-                        center={center}
-                    />
-                </Grid>
-                <Grid item xs={5}>
-                    <RestaurantsList restaurants={restaurants} loading={loading} error={error} />
-                </Grid>
-            </Grid>
+            <RestaurantsView
+                restaurants={restaurants}
+                onSearchRestaurants={handleSearchRestaurants}
+                className={classes.map}
+                loading={loading}
+                center={center}
+                error={error}
+                mobile={mobile}
+            />
         </Container>
     )
 };

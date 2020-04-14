@@ -6,11 +6,17 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '95vh',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
     list: {
         width: '100%',
         backgroundColor: theme.palette.background.paper,
-        height: '70vh',
+        height: '95vh',
         overflow: 'auto'
     },
     restaurantContainer: {
@@ -40,21 +46,24 @@ export default (props) => {
     const classes = useStyles();
 
     return (
-        props.loading
-            ? <CircularProgress />
-            : props.error
-                ? <div className={classes.error}>Ha ocurrido un error</div>
-                : props.restaurants.length
-                    ?
-                        <List className={classes.list}>
-                            {
-                                props.restaurants.map(restaurant => (
-                                    <ListItem alignItems="flex-start" className={classes.restaurantContainer} key={restaurant.id}>
-                                        <Restaurant className={classes.restaurant} details={restaurant} />
-                                    </ListItem>
-                                ))
-                            }
-                        </List>
-                    : <div className={classes.warning}>No se encontraron restaurantes abiertos. <br />Seleccione otro punto del mapa</div>
-    )
+        <div className={classes.container}>
+            {props.loading
+                ? <CircularProgress />
+                : props.error
+                    ? <div className={classes.error}>Ha ocurrido un error</div>
+                    : props.restaurants.length
+                        ?
+                            <List className={classes.list}>
+                                {
+                                    props.restaurants.map(restaurant => (
+                                        <ListItem alignItems="flex-start" className={classes.restaurantContainer} key={restaurant.id}>
+                                            <Restaurant className={classes.restaurant} details={restaurant} />
+                                        </ListItem>
+                                    ))
+                                }
+                            </List>
+                        : <div className={classes.warning}>No se encontraron restaurantes abiertos. <br />Seleccione otro punto del mapa</div>
+            }
+        </div>
+        )
 };
