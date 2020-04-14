@@ -4,7 +4,7 @@ const cookies = new Cookies();
 
 export const login = async (userName, password) => {
     const token = await LoginClient.login(userName, password);
-    cookies.set('py_auth_token', token, {path: '/'});
+    cookies.set('py_auth_token', token);
 };
 
 export const logout = () => {

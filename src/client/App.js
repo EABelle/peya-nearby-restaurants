@@ -9,6 +9,7 @@ import {
     Switch
 } from "react-router-dom";
 import Header from "./components/Header";
+import { CookiesProvider } from 'react-cookie';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -35,15 +36,17 @@ const theme = createMuiTheme({
 function App() {
     return (
         <div className="App">
-            <ThemeProvider theme={theme}>
-                <Router>
-                    <Switch>
-                        <Route path="/login" component={Login} />
-                        <PrivateRoute path="/search-restaurants" component={SearchRestaurants} />
-                        <Redirect to={{ pathname: '/search-restaurants' }} />
-                    </Switch>
-                </Router>
-            </ThemeProvider>
+            <CookiesProvider>
+                <ThemeProvider theme={theme}>
+                    <Router>
+                        <Switch>
+                            <Route path="/login" component={Login} />
+                            <PrivateRoute path="/search-restaurants" component={SearchRestaurants} />
+                            <Redirect to={{ pathname: '/search-restaurants' }} />
+                        </Switch>
+                    </Router>
+                </ThemeProvider>
+            </CookiesProvider>
         </div>
     );
 }
