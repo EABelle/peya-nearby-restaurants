@@ -7,23 +7,44 @@ import {
     TextField
 } from '@material-ui/core';
 import logo from "../logo.svg";
+import whiteLogo from "../header-logo.svg";
 import {isAuthenticated, login} from "../services/LoginService";
 import { Redirect } from 'react-router-dom';
 import LoadingBar from "../components/LoadingBar";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 
 const useStyles = makeStyles(theme => ({
+    container: {
+        height: '100vh',
+        [theme.breakpoints.down('sm')]: {
+            backgroundColor: '#f52F41'
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     appLogo: {
-        width: 300
+        width: 200,
+        [theme.breakpoints.down('sm')]: {
+            width: 200,
+        }
+    },
+    title: {
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 18,
+            color: 'white'
+        }
     },
     formContainer: {
-        marginTop: theme.spacing(20),
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column'
     },
     loginCard: {
-        padding: '20px 24px'
+        padding: '20px 24px',
+        maxWidth: 420
     },
     errorContainer: {
         width: '100%',
@@ -48,6 +69,7 @@ export default (props) => {
     const [redirectToIndex, setRedirectToIndex] = useState(isAuthenticated());
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const mobile = useMediaQuery('(max-width:959px)');
 
 
     const handleSubmit = async (event) => {
@@ -80,9 +102,9 @@ export default (props) => {
     }
 
     return (
-        <Container component="main">
+        <Container component="main" className={classes.container}>
             <div className={classes.formContainer}>
-                <img src={logo} className={classes.appLogo} alt="logo" />
+                <img src={mobile ? whiteLogo : logo} className={classes.appLogo} alt="logo" />
                 <h2 className={classes.title}>
                     Ingresar a mi cuenta
                 </h2>

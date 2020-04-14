@@ -6,9 +6,6 @@ const cookies = new Cookies();
 
 const axios = Axios.create({
   baseURL: config.baseURL,
-  headers: {
-    Authorization: cookies.get('py_auth_token')
-  }
 });
 
 
@@ -21,6 +18,9 @@ async function getRestaurants(point, offset = 0, max = 20, country = 1, sortBy =
       country,
       sortBy,
       onlyOpen
+    },
+    headers: {
+      Authorization: cookies.get('py_auth_token')
     }
   });
   return response.data.map(restaurant => {

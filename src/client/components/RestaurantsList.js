@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         minHeight: '95vh',
         alignItems: 'center',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        padding: 8
     },
     list: {
         width: '100%',
@@ -62,7 +63,7 @@ export default (props) => {
                                     ))
                                 }
                             </List>
-                        : <div className={classes.warning}>No se encontraron restaurantes abiertos. <br />Seleccione otro punto del mapa</div>
+                        :   <div className={classes.warning}>No se encontraron restaurantes abiertos. <br />Seleccione otro punto del mapa</div>
             }
         </div>
         )

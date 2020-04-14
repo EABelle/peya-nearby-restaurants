@@ -7,7 +7,10 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
     container: {
-        marginTop: 60
+        marginTop: 24,
+        [theme.breakpoints.up('lg')]: {
+            marginTop: 24
+        }
     },
     mapContainer: {
         width: '50%'
@@ -43,7 +46,7 @@ export default (props) => {
         searchRestaurants(center);
     }, [search]);
 
-    const mobile = useMediaQuery('(max-width:1024px)');
+    const mobile = useMediaQuery('(max-width:960px)');
     const [ restaurants, setRestaurants ] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -71,7 +74,7 @@ export default (props) => {
 
     return (
         <Container component="main" className={classes.container}>
-            <Typography variant="h4" align="left" className={classes.title}>Buscar restaurantes</Typography>
+            <Typography variant="h5" align="left" className={classes.title}>Buscar restaurantes</Typography>
             <RestaurantsView
                 restaurants={restaurants}
                 onSearchRestaurants={handleSearchRestaurants}
