@@ -9,7 +9,12 @@ import myAccountRouter from './routes/MyAccountRouter';
 import restaurantsRouter from './routes/RestaurantsRouter';
 import staticsRouter from './routes/StatisticsRouter';
 import configRouter from './routes/ConfigRouter';
-import { setRestaurantsTTL } from "./middlewares/cache";
+import {
+  getRestaurantsFromCache,
+  setRestaurantsSearchToCache,
+  setRestaurantsToCache,
+  setRestaurantsTTL
+} from "./middlewares/cache";
 import cors from 'cors';
 import authMiddleware from "./middlewares/auth";
 dotenv.config();
@@ -26,7 +31,7 @@ app.use(setRestaurantsTTL);
 app.use('/api/statistics', staticsRouter);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', authMiddleware, myAccountRouter);
-app.use('/api/restaurants', authMiddleware, restaurantsRouter);
+app.use('/api/restaurants', authMiddleware, setRestaurantsSearchToCache, getRestaurantsFromCache, restaurantsRouter, setRestaurantsToCache);
 app.use('/api/config', authMiddleware, configRouter);
 
 // catch 404 and forward to error handler
