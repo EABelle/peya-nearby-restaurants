@@ -17,7 +17,8 @@ function getRestaurants(req, res, next) {
             res.locals.restaurants = response;
             next();
         })
-        .catch(() => {
+        .catch((error) => {
+            console.log(error)
             return res.sendStatus(500);
         });
 }

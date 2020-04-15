@@ -1,5 +1,5 @@
 import Axios from "axios";
-import config from "../config";
+import config from "./config";
 
 const tokenClient = Axios.create({
     baseURL: `${config.baseURL}tokens`,
@@ -14,7 +14,9 @@ export default class AppTokenClient {
                 clientId: CLIENT_ID,
                 clientSecret: CLIENT_SECRET
             }})
-            .then(response => response.data.access_token);
+            .then(response => {
+                return response.data.access_token
+            });
 
     }
 }

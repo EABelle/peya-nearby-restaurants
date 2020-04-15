@@ -1,0 +1,1221 @@
+export const validRestaurantsAPIResponse1 = {
+    "total": 540,
+    "max": 100,
+    "sort": "",
+    "count": 100,
+    "data": [{
+        "id": 89141,
+        "logo": "pizzeriarocinantelogo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "pizzeria-rocinante",
+        "name": "Pizzería Rocinante",
+        "rating": "45",
+        "coordinates": "-34.9124,-56.179",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18311,
+        "logo": "d-la-ribera-original.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "dla-ribera-pocitos",
+        "name": "D'la Ribera Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9032,-56.1569",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17496,
+        "logo": "nuevo-ilmondo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "il-mondo-punta-carretas",
+        "name": "Il Mondo Punta Carretas",
+        "rating": "45",
+        "coordinates": "-34.9187,-56.1565",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 64582,
+        "logo": "futuro-refuerzos.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "futuro-refuerzos",
+        "name": "Futuro Refuerzos",
+        "rating": "45",
+        "coordinates": "-34.8976,-56.1676",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 31773,
+        "logo": "arroba-bar.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bar",
+        "name": "@Bar",
+        "rating": "35",
+        "coordinates": "-34.8984,-56.1667",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17725,
+        "logo": "bar-rossell-logo.jpg",
+        "deliveryTimeMaxMinutes": "120",
+        "link": "bar-rossell",
+        "name": "Bar Rossell",
+        "rating": "35",
+        "coordinates": "-34.8988,-56.1649",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44652,
+        "logo": "cayetana-logo-nuevo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "cayetana",
+        "name": "Cayetana",
+        "rating": "45",
+        "coordinates": "-34.9084,-56.1593",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17451,
+        "logo": "logo-food-love-original.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "food-love",
+        "name": "Food & Love",
+        "rating": "40",
+        "coordinates": "-34.9151,-56.1559",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18152,
+        "logo": "oliva-gourmet2.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "oliva",
+        "name": "Oliva",
+        "rating": "40",
+        "coordinates": "-34.9066,-56.1493",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 42669,
+        "logo": "gauchoburger-logoo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "gaucho-burger-pack",
+        "name": "Gaucho Burger",
+        "rating": "45",
+        "coordinates": "-34.9065,-56.149",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 1602,
+        "logo": "mimosouy-bar.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "mimoso",
+        "name": "Mimoso Resto Bar",
+        "rating": "45",
+        "coordinates": "-34.9154,-56.1589",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 804,
+        "logo": "grazie_italia.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "grazie-italia",
+        "name": "Grazie Italia",
+        "rating": "45",
+        "coordinates": "-34.9058,-56.1517",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 54008,
+        "logo": "el-club-de-la-papa-frita-parque-batlle1.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "el-club-de-la-papa-frita-parque-batlle",
+        "name": "El Club de la Papa Frita - Parque Batlle",
+        "rating": "45",
+        "coordinates": "-34.9024,-56.1634",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 29474,
+        "logo": "bar-18-new.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bar-18",
+        "name": "Bar 18",
+        "rating": "45",
+        "coordinates": "-34.899,-56.1688",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 115393,
+        "logo": "noah-s-cordon.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "noahs-green-kitchen---centro",
+        "name": "Noah's Green Kitchen - Centro Montevideo",
+        "rating": "45",
+        "coordinates": "-34.9016,-56.1777",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18199,
+        "logo": "la-maranada-new.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-maranada",
+        "name": "La Marañada",
+        "rating": "45",
+        "coordinates": "-34.9025,-56.169",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 31389,
+        "logo": "carbonada-logo-nuevo2.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "carbonada",
+        "name": "Carbonada",
+        "rating": "45",
+        "coordinates": "-34.9054,-56.1475",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 68395,
+        "logo": "rudy-burgers-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "rudy",
+        "name": "Rudy",
+        "rating": "45",
+        "coordinates": "-34.8982,-56.1364",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18298,
+        "logo": "barluz-logo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "bar-pizzeria-luz",
+        "name": "Bar Pizzería Luz",
+        "rating": "45",
+        "coordinates": "-34.9021,-56.1693",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 12478,
+        "logo": "el-emporio-dela-pizza.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "el-emporio-de-la-pizza",
+        "name": "El Emporio de la Pizza",
+        "rating": "45",
+        "coordinates": "-34.9113,-56.1617",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17504,
+        "logo": "trouville-logonewnew.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "pizzeria-trouville-pocitos",
+        "name": "Pizzería Trouville - Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9204,-56.1499",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44316,
+        "logo": "dentelogo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "al-dente-pastas-artesanales",
+        "name": "Al Dente Pastas Artesanales",
+        "rating": "45",
+        "coordinates": "-34.9154,-56.1589",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 36933,
+        "logo": "logo-i-love-tacos.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "i-love-tacos",
+        "name": "I Love Tacos",
+        "rating": "45",
+        "coordinates": "-34.9154,-56.1587",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 55966,
+        "logo": "tomato-gourmet-cordon.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "tomato-gourmet-cordon",
+        "name": "Tomato Gourmet - Cordón",
+        "rating": "45",
+        "coordinates": "-34.9068,-56.1659",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 51598,
+        "logo": "boutique-de-pizzas-pocitos.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "boutique-de-pizzas-pocitos",
+        "name": "Boutique de Pizzas Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9157,-56.1507",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 54444,
+        "logo": "mil-pizzas.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "mil-pizzas",
+        "name": "Mil Pizzas",
+        "rating": "45",
+        "coordinates": "-34.913,-56.1562",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 34610,
+        "logo": "salerno.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "salerno",
+        "name": "Salerno",
+        "rating": "45",
+        "coordinates": "-34.9021,-56.1692",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 47456,
+        "logo": "moksha-comida-de-la-india.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "moksha-comida-de-la-india",
+        "name": "Moksha - Comida de la India",
+        "rating": "45",
+        "coordinates": "-34.9141,-56.1602",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 3277,
+        "logo": "logo-hoy-te-quiero.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "hoy-te-quiero-en-casa",
+        "name": "Hoy te Quiero en Casa",
+        "rating": "45",
+        "coordinates": "-34.916,-56.1558",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 59259,
+        "logo": "misushi-mvd.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "misushi-mvd",
+        "name": "Misushi MVD",
+        "rating": "45",
+        "coordinates": "-34.9143,-56.159",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 60502,
+        "logo": "logo-standard-burger.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "standard-burger",
+        "name": "Standard Burger",
+        "rating": "40",
+        "coordinates": "-34.9154,-56.1595",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 4689,
+        "logo": "bartologologo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bartolo",
+        "name": "Bartolo",
+        "rating": "45",
+        "coordinates": "-34.9071,-56.1557",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 42162,
+        "logo": "pizzetas-delivery-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "the-pizzetas-shop-requena",
+        "name": "The Pizzetas shop Requena",
+        "rating": "45",
+        "coordinates": "-34.9059,-56.1687",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 104199,
+        "logo": "logo-mc-cafe.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "mc-cafe-parque-rodo",
+        "name": "Mc Café Parque Rodó",
+        "rating": "45",
+        "coordinates": "-34.9161,-56.1689",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 47353,
+        "logo": "nuevologo-pocitos.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "el-noble-mvd",
+        "name": "El Noble Mvd",
+        "rating": "45",
+        "coordinates": "-34.8978,-56.1652",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44708,
+        "logo": "logo-lisa-burger.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "lisa-burgers-and-drinks",
+        "name": "Lisa Burgers and Drinks",
+        "rating": "45",
+        "coordinates": "-34.9154,-56.1693",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17153,
+        "logo": "torrente-bar.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "torrente",
+        "name": "Torrente Bar",
+        "rating": "45",
+        "coordinates": "-34.9034,-56.1724",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 56020,
+        "logo": "shelter-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "shelter-patio-cervecero",
+        "name": "Shelter Patio Cervecero",
+        "rating": "45",
+        "coordinates": "-34.9062,-56.1768",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 32532,
+        "logo": "el-club-de-la-papa-frita-pocitos.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "el-club-de-la-papa-frita",
+        "name": "El Club de la Papa Frita",
+        "rating": "45",
+        "coordinates": "-34.9071,-56.1431",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 15,
+        "logo": "ponte-vecchio.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "ponte-vecchio",
+        "name": "Ponte Vecchio",
+        "rating": "0",
+        "coordinates": "-34.903,-56.1585",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 16995,
+        "logo": "salen_pizzas.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "salen-pizzas",
+        "name": "Salen Pizzas",
+        "rating": "45",
+        "coordinates": "-34.9183,-56.1503",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 50188,
+        "logo": "magnum-logo-nuevo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "magnum",
+        "name": "Magnum",
+        "rating": "45",
+        "coordinates": "-34.9239,-56.1603",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 55574,
+        "logo": "il-gufo-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "il-gufo",
+        "name": "Il Gufo",
+        "rating": "45",
+        "coordinates": "-34.9071,-56.1602",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18213,
+        "logo": "la-pasiva-roosevelt.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-pasiva-tres-cruces",
+        "name": "La Pasiva Tres Cruces",
+        "rating": "40",
+        "coordinates": "-34.8943,-56.1653",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 45229,
+        "logo": "local-hamburguesas.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "local-burgers-y-pizzas",
+        "name": "Local Burgers y Pizzas",
+        "rating": "45",
+        "coordinates": "-34.8999,-56.1733",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 11548,
+        "logo": "logo-sushi-26.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "26-sushi-pocitos",
+        "name": "26 Sushi Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9093,-56.1483",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18143,
+        "logo": "bocatti-empanadas.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bocatti-empanadas-cordon",
+        "name": "Bocatti Empanadas Cordón",
+        "rating": "45",
+        "coordinates": "-34.8993,-56.1689",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 53485,
+        "logo": "el-sabor-de-lo-casero.jpg",
+        "deliveryTimeMaxMinutes": "720",
+        "link": "el-sabor-de-lo-casero",
+        "name": "El Sabor de lo Casero",
+        "rating": "45",
+        "coordinates": "-34.8835,-56.1512",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 23536,
+        "logo": "maldonado-bar.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "maldonado-bar",
+        "name": "Maldonado Bar",
+        "rating": "40",
+        "coordinates": "-34.9086,-56.1786",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17044,
+        "logo": "chivitos-lo-de-pepe.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "chivitos-lo-de-pepe",
+        "name": "Chivitos lo de Pepe",
+        "rating": "45",
+        "coordinates": "-34.9153,-56.1507",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 30718,
+        "logo": "pizzabrossa-nuevo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "pizzabrossa",
+        "name": "Pizzabrossa",
+        "rating": "45",
+        "coordinates": "-34.9043,-56.1447",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18211,
+        "logo": "palermo-viejo-logo2.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "palermo-viejo-mvd",
+        "name": "Palermo Viejo",
+        "rating": "45",
+        "coordinates": "-34.9126,-56.1839",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 29396,
+        "logo": "burgersv2alogo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "burgers-pocitos",
+        "name": "Burgers Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9122,-56.1473",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 43308,
+        "logo": "urunatu-logo-nuevo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "uruguay-natural-parrilla-gourmet",
+        "name": "Uruguay Natural Parrilla Gourmet",
+        "rating": "45",
+        "coordinates": "-34.9229,-56.161",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 4035,
+        "logo": "logo-tabbouleh.jpg",
+        "deliveryTimeMaxMinutes": "120",
+        "link": "tabbouleh",
+        "name": "Tabbouleh",
+        "rating": "45",
+        "coordinates": "-34.9089,-56.1579",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 19241,
+        "logo": "bienbar-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bien-bar",
+        "name": "Bien Bar",
+        "rating": "45",
+        "coordinates": "-34.9098,-56.1474",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 16620,
+        "logo": "peru-ventiseis.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "peru-26",
+        "name": "Perú 26",
+        "rating": "45",
+        "coordinates": "-34.9093,-56.1483",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44400,
+        "logo": "elberretin-logo-nuevo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "el-berretin",
+        "name": "El Berretín",
+        "rating": "50",
+        "coordinates": "-34.9227,-56.1551",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18046,
+        "logo": "logo-la-cavia.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-cavia-parrillada",
+        "name": "La Cavia Parrillada",
+        "rating": "40",
+        "coordinates": "-34.9123,-56.1527",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 105633,
+        "logo": "devoto-express-6.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "devoto-express-cordon",
+        "name": "Devoto Express Cordón",
+        "rating": "0",
+        "coordinates": "-34.9006,-56.1722",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18165,
+        "logo": "sushi-miyagi.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "miyagi-sushi",
+        "name": "Miyagi Sushi",
+        "rating": "45",
+        "coordinates": "-34.9089,-56.1484",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 42549,
+        "logo": "laparrillitadevinoly-delivery-premium.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "la-parrillita-de-vinoly",
+        "name": "La Parrillita de Viñoly",
+        "rating": "50",
+        "coordinates": "-34.9234,-56.1597",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 60932,
+        "logo": "fatto-in-casa.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "fatto-in-casa",
+        "name": "Fatto in Casa",
+        "rating": "45",
+        "coordinates": "-34.9157,-56.1507",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 48509,
+        "logo": "guayabos-by-fans.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "guayabos-pizzeria",
+        "name": "Guayabos Pizzeria",
+        "rating": "40",
+        "coordinates": "-34.9056,-56.1831",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 42429,
+        "logo": "fellini-logo-nuevo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "fellini-pocitos",
+        "name": "Fellini Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9133,-56.1484",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 53893,
+        "logo": "the-paletas-factory.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "the-paletas-factory",
+        "name": "The Paletas Factory",
+        "rating": "45",
+        "coordinates": "-34.9153,-56.1491",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 32346,
+        "logo": "artico---fast-sea-food.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "artico-fast-sea-food",
+        "name": "Artico - Fast Sea Food",
+        "rating": "45",
+        "coordinates": "-34.9251,-56.1547",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 52130,
+        "logo": "fabric-sushi-punta-carretas.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "fabric-sushi-bar",
+        "name": "Fabric Sushi Bar",
+        "rating": "45",
+        "coordinates": "-34.9202,-56.1507",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 13080,
+        "logo": "espacio-gourmet.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "espacio-gourmet",
+        "name": "Espacio Gourmet",
+        "rating": "45",
+        "coordinates": "-34.9084,-56.1472",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 100683,
+        "logo": "delaostia-tapas-burgers.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "delaostia-tapas-&-burgers",
+        "name": "Delaostia Tapas & Burgers",
+        "rating": "45",
+        "coordinates": "-34.9218,-56.1611",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44665,
+        "logo": "la-pasiva-punta-carretas-shopping.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "la-pasiva-punta-carretas-shopping",
+        "name": "La Pasiva - Punta Carretas Shopping",
+        "rating": "45",
+        "coordinates": "-34.9241,-56.1588",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 64393,
+        "logo": "logo-bonsai-1.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "bonsai-sushi-montevideo",
+        "name": "Bonsai Sushi Montevideo",
+        "rating": "45",
+        "coordinates": "-34.9108,-56.147",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 54531,
+        "logo": "logo-negeorni.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "negroni",
+        "name": "Negroni",
+        "rating": "45",
+        "coordinates": "-34.9248,-56.1568",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 53642,
+        "logo": "logo-empanadas-mafalda.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "empanadas-mafalda-cordon",
+        "name": "Empanadas Mafalda Cordón",
+        "rating": "40",
+        "coordinates": "-34.9017,-56.1785",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 65456,
+        "logo": "el-arabito-de-montevideo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "el-arabito-de-montevideo",
+        "name": "El Arabito De Montevideo",
+        "rating": "50",
+        "coordinates": "-34.886,-56.1659",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 116687,
+        "logo": "barrio-pizza.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "barrio-pizza",
+        "name": "Barrio Pizza",
+        "rating": "50",
+        "coordinates": "-34.9255,-56.1582",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 30777,
+        "logo": "vespita-fin.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "la-vespita",
+        "name": "La Vespita",
+        "rating": "50",
+        "coordinates": "-34.9128,-56.1486",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 32926,
+        "logo": "barreiro-gourmet.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "barreiro-gourmet",
+        "name": "Barreiro Gourmet",
+        "rating": "40",
+        "coordinates": "-34.9084,-56.1471",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 105613,
+        "logo": "disco-centro.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "disco-centro",
+        "name": "Disco Centro",
+        "rating": "0",
+        "coordinates": "-34.9023,-56.1871",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44300,
+        "logo": "bardotmvd-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bardot",
+        "name": "Bardot",
+        "rating": "40",
+        "coordinates": "-34.9283,-56.16",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 66016,
+        "logo": "i-am-burguesa.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "i-am-burguesa",
+        "name": "I Am Burguesa",
+        "rating": "45",
+        "coordinates": "-34.9069,-56.1905",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 46711,
+        "logo": "di-roma.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "di-roma",
+        "name": "Di Roma",
+        "rating": "40",
+        "coordinates": "-34.8968,-56.1455",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 107462,
+        "logo": "devoto-centro.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "devoto-centro",
+        "name": "Devoto Centro",
+        "rating": "0",
+        "coordinates": "-34.8924,-56.1804",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 16992,
+        "logo": "la-chicharra.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "heladeria-la-chicharra",
+        "name": "Heladería La Chicharra",
+        "rating": "45",
+        "coordinates": "-34.9033,-56.1594",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18170,
+        "logo": "la-tortuguita.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-tortuguita",
+        "name": "La Tortuguita",
+        "rating": "45",
+        "coordinates": "-34.9009,-56.1783",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 652,
+        "logo": "cervantes.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "pizzeria-cervantes-jacinto-viera",
+        "name": "Pizzería Cervantes Jacinto Vera",
+        "rating": "45",
+        "coordinates": "-34.8749,-56.1723",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 51848,
+        "logo": "la-estacada.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-estacada",
+        "name": "La Estacada",
+        "rating": "45",
+        "coordinates": "-34.9333,-56.1607",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 44898,
+        "logo": "pizza-centro.jpg",
+        "deliveryTimeMaxMinutes": "90",
+        "link": "pizza-centro",
+        "name": "Pizza Centro",
+        "rating": "45",
+        "coordinates": "-34.9087,-56.1923",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 118,
+        "logo": "logonamaste.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "namaste-veggie-resto-&-chillout-bar",
+        "name": "Namasté Veggie Restó & Chillout Bar",
+        "rating": "50",
+        "coordinates": "-34.9072,-56.1634",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 33144,
+        "logo": "el-farolito-pocitos.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "el-farolito",
+        "name": "El Farolito",
+        "rating": "45",
+        "coordinates": "-34.9094,-56.1637",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18196,
+        "logo": "pastas-blanes.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "pastas-blanes",
+        "name": "Pastas Blanes",
+        "rating": "45",
+        "coordinates": "-34.9112,-56.1715",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 6671,
+        "logo": "logo-la-esquina.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-esquina-pizzeria",
+        "name": "La Esquina Pizzería",
+        "rating": "45",
+        "coordinates": "-34.9077,-56.1658",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17989,
+        "logo": "la-roca-prado.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "la-roca-buceo",
+        "name": "La Roca Buceo",
+        "rating": "40",
+        "coordinates": "-34.8876,-56.1371",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 43070,
+        "logo": "kepizza-logo36.jpg",
+        "deliveryTimeMaxMinutes": "720",
+        "link": "kepizza",
+        "name": "Kepizza!",
+        "rating": "40",
+        "coordinates": "-34.902,-56.194",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17616,
+        "logo": "pizza-piedra.jpg",
+        "deliveryTimeMaxMinutes": "30",
+        "link": "pizza-piedra-pocitos",
+        "name": "Pizza Piedra Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9155,-56.1589",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 63448,
+        "logo": "angus-grill-logo.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "angus-grill",
+        "name": "Angus Grill",
+        "rating": "40",
+        "coordinates": "-34.9066,-56.1396",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 17978,
+        "logo": "sushi-time-logo.jpg",
+        "deliveryTimeMaxMinutes": "60",
+        "link": "sushi-time-pocitos",
+        "name": "Sushi Time Pocitos",
+        "rating": "45",
+        "coordinates": "-34.9132,-56.1589",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18300,
+        "logo": "pancho-villa.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "pancho-villa",
+        "name": "Pancho Villa",
+        "rating": "45",
+        "coordinates": "-34.9082,-56.1703",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 7825,
+        "logo": "bar-rodo-express.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "bar-rodo-express",
+        "name": "Bar Rodo Express",
+        "rating": "45",
+        "coordinates": "-34.9097,-56.1673",
+        "opened": 1,
+        "topCategories": ""
+    }, {
+        "id": 18297,
+        "logo": "cervantes-pizzeria.jpg",
+        "deliveryTimeMaxMinutes": "45",
+        "link": "pizzeria-cervantes-tres-cruces",
+        "name": "Pizzería Cervantes Tres Cruces",
+        "rating": "40",
+        "coordinates": "-34.8918,-56.1685",
+        "opened": 1,
+        "topCategories": ""
+    }],
+    "offset": 0,
+    "info": {
+        "flags": [{"name": "search-filter-prices", "value": "Variation1"}, {
+            "name": "affordable-products",
+            "value": "Variation1"
+        }, {"name": "search-apache-rest-client", "value": "Variation1"}, {
+            "name": "search-midas-integration",
+            "value": "Variation1"
+        }, {"name": "search-filter-shoplist-by-business-category", "value": "Variation1"}],
+        "advertisingAreaId": "5cd0572558c229161acc82f0",
+        "advertisingAreaType": 1,
+        "areaId": 19063
+    }
+};
+export const validRestaurantsResponse1 = [{
+    "id": 44400,
+    "logo": "elberretin-logo-nuevo.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "el-berretin",
+    "name": "El Berretín",
+    "rating": "50",
+    "coordinates": "-34.9227,-56.1551",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 42549,
+    "logo": "laparrillitadevinoly-delivery-premium.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "la-parrillita-de-vinoly",
+    "name": "La Parrillita de Viñoly",
+    "rating": "50",
+    "coordinates": "-34.9234,-56.1597",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 65456,
+    "logo": "el-arabito-de-montevideo.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "el-arabito-de-montevideo",
+    "name": "El Arabito De Montevideo",
+    "rating": "50",
+    "coordinates": "-34.886,-56.1659",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 116687,
+    "logo": "barrio-pizza.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "barrio-pizza",
+    "name": "Barrio Pizza",
+    "rating": "50",
+    "coordinates": "-34.9255,-56.1582",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 30777,
+    "logo": "vespita-fin.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "la-vespita",
+    "name": "La Vespita",
+    "rating": "50",
+    "coordinates": "-34.9128,-56.1486",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 118,
+    "logo": "logonamaste.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "namaste-veggie-resto-&-chillout-bar",
+    "name": "Namasté Veggie Restó & Chillout Bar",
+    "rating": "50",
+    "coordinates": "-34.9072,-56.1634",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 30718,
+    "logo": "pizzabrossa-nuevo.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "pizzabrossa",
+    "name": "Pizzabrossa",
+    "rating": "45",
+    "coordinates": "-34.9043,-56.1447",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 17504,
+    "logo": "trouville-logonewnew.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "pizzeria-trouville-pocitos",
+    "name": "Pizzería Trouville - Pocitos",
+    "rating": "45",
+    "coordinates": "-34.9204,-56.1499",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 6671,
+    "logo": "logo-la-esquina.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "la-esquina-pizzeria",
+    "name": "La Esquina Pizzería",
+    "rating": "45",
+    "coordinates": "-34.9077,-56.1658",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 18196,
+    "logo": "pastas-blanes.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "pastas-blanes",
+    "name": "Pastas Blanes",
+    "rating": "45",
+    "coordinates": "-34.9112,-56.1715",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 33144,
+    "logo": "el-farolito-pocitos.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "el-farolito",
+    "name": "El Farolito",
+    "rating": "45",
+    "coordinates": "-34.9094,-56.1637",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 12478,
+    "logo": "el-emporio-dela-pizza.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "el-emporio-de-la-pizza",
+    "name": "El Emporio de la Pizza",
+    "rating": "45",
+    "coordinates": "-34.9113,-56.1617",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 44898,
+    "logo": "pizza-centro.jpg",
+    "deliveryTimeMaxMinutes": "90",
+    "link": "pizza-centro",
+    "name": "Pizza Centro",
+    "rating": "45",
+    "coordinates": "-34.9087,-56.1923",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 51848,
+    "logo": "la-estacada.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "la-estacada",
+    "name": "La Estacada",
+    "rating": "45",
+    "coordinates": "-34.9333,-56.1607",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 652,
+    "logo": "cervantes.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "pizzeria-cervantes-jacinto-viera",
+    "name": "Pizzería Cervantes Jacinto Vera",
+    "rating": "45",
+    "coordinates": "-34.8749,-56.1723",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 18170,
+    "logo": "la-tortuguita.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "la-tortuguita",
+    "name": "La Tortuguita",
+    "rating": "45",
+    "coordinates": "-34.9009,-56.1783",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 16992,
+    "logo": "la-chicharra.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "heladeria-la-chicharra",
+    "name": "Heladería La Chicharra",
+    "rating": "45",
+    "coordinates": "-34.9033,-56.1594",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 18298,
+    "logo": "barluz-logo.jpg",
+    "deliveryTimeMaxMinutes": "60",
+    "link": "bar-pizzeria-luz",
+    "name": "Bar Pizzería Luz",
+    "rating": "45",
+    "coordinates": "-34.9021,-56.1693",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 68395,
+    "logo": "rudy-burgers-logo.jpg",
+    "deliveryTimeMaxMinutes": "45",
+    "link": "rudy",
+    "name": "Rudy",
+    "rating": "45",
+    "coordinates": "-34.8982,-56.1364",
+    "opened": 1,
+    "topCategories": ""
+}, {
+    "id": 66016,
+    "logo": "i-am-burguesa.jpg",
+    "deliveryTimeMaxMinutes": "30",
+    "link": "i-am-burguesa",
+    "name": "I Am Burguesa",
+    "rating": "45",
+    "coordinates": "-34.9069,-56.1905",
+    "opened": 1,
+    "topCategories": ""
+}];

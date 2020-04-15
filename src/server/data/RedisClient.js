@@ -1,4 +1,4 @@
-import redis from 'redis';
+const redis = require(process.env.NODE_ENV === 'test' ? 'redis-mock' : 'redis');
 const { promisify } = require("util");
 
 const client = redis.createClient({

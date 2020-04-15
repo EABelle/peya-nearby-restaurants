@@ -4,7 +4,7 @@ export default class LoginClient {
 
     static login(userName, password) {
         return appClient
-            .get('tokens', {
+            .get('/tokens/', {
                 params: {
                     userName,
                     password

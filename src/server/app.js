@@ -25,10 +25,9 @@ app.use(cors());
 app.use(setRestaurantsTTL);
 app.use('/api/statistics', staticsRouter);
 app.use('/api/login', authRouter);
-app.use(authMiddleware);
-app.use('/api/myAccount', myAccountRouter);
-app.use('/api/restaurants', restaurantsRouter);
-app.use('/api/config', configRouter);
+app.use('/api/myAccount', authMiddleware, myAccountRouter);
+app.use('/api/restaurants', authMiddleware, restaurantsRouter);
+app.use('/api/config', authMiddleware, configRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,4 +43,4 @@ app.use(function(err, req, res, next) {
   res.sendStatus(err.status || 500);
 });
 
-module.exports = app;
+export default app;
