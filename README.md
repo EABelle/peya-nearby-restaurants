@@ -41,7 +41,7 @@ PORT=3003
 DOCKER_COMPOSE_SERVER_PORTS=3003:3003
 ```
 
-**The above configuration exposes the API to `http://localhost:3001/` and the frontend to `http://localhost:80/`*
+**The above configuration exposes the API to `http://localhost:3003/` and the frontend to `http://localhost:80/`*
 
 Then, you only have to run the following command to build and run both Nginx (for React), Node.js and Redis containers:
 ```
