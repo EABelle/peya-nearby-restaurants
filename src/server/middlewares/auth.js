@@ -10,8 +10,8 @@ async function getUserFromCache(token) {
 }
 
 const authMiddleware = async (req, res, next) => {
-    const user = await getUserFromCache(req.headers.authorization);
     try {
+        const user = await getUserFromCache(req.headers.authorization);
         if(!user) {
             return res.sendStatus(401);
         }
@@ -19,7 +19,7 @@ const authMiddleware = async (req, res, next) => {
         appClient.defaults.headers.Authorization = req.user.userToken;
         return next();
     } catch(e) {
-        return res.error(e);
+        return res.sendStatus(401);
     }
 };
 
