@@ -1,8 +1,17 @@
-import {expireAsync, getAsync, keysAsync, mgetAsync, setAsync} from "../data/RedisClient";
+import {expireAsync, getAsync, hmsetAsync, keysAsync, mgetAsync, setAsync} from "../data/RedisClient";
 import crypto from "crypto";
 import {generateGetUserKey, generateSetUserKey} from "../utils";
 
 export default class CacheService {
+
+    static async saveSearchToCache(params, ttl = 60 * 60) {
+        await hmsetAsync(
+            'SEARCH',
+            params.point,
+            JSON.stringify(params)
+        );
+        await expireAsync('SEARCH', ttl);
+    }
 
     static async getRestaurantsFromCache(point) {
         const restaurants = await getAsync(`RESTAURANTS_${point}`);

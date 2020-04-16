@@ -31,15 +31,6 @@ function handleResponse(response, query) {
 
 export default class RestaurantsService {
 
-    static async saveSearchToCache(params, ttl = 60 * 60) {
-        await hmsetAsync(
-            'SEARCH',
-            params.point,
-            JSON.stringify(params)
-        );
-        await expireAsync('SEARCH', ttl);
-    }
-
     static async getRestaurants(params, token, cacheTTL) {
 
         const {
@@ -49,7 +40,7 @@ export default class RestaurantsService {
             fields = DEFAULT_FIELDS,
         } = params;
 
-        await RestaurantsService.saveSearchToCache(params);
+        await CacheService.saveSearchToCache(params);
         const restaurantsFromCache = await CacheService.getRestaurantsFromCache(point);
 
         if (restaurantsFromCache) {

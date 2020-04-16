@@ -1,13 +1,12 @@
 import AccountService from "../services/AccountService";
 
-function getStatistics(req, res) {
-    AccountService.getLoggedInAccounts()
-        .then(response => {
-            return res.send({loggedInAccounts: response});
-        })
-        .catch(() => {
-            res.sendStatus(500);
-        });
+async function getStatistics(req, res) {
+    try {
+        const loggedInAccounts = await AccountService.getLoggedInAccounts();
+        return res.send({loggedInAccounts});
+    } catch(e) {
+        return res.sendStatus(500);
+    }
 }
 
 export default { getStatistics };
