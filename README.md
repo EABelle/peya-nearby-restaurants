@@ -132,11 +132,11 @@ The followings are the HTTP methods and endpoints of the API:
   
     - Request query params:
         - **point (mandatory)**: The coordinates of the search
-        - offset: The offset of the search
-        - max: the maximum quantity of results
+        - offset: The offset of the search (=0 by default)
+        - max: the maximum quantity of results (=20 by default)
         - country: the country number (Uruguay=1 by default)
+        - onlyOpen: if =true, fetches only the open restaurants (=false by default)
         - sortBy: Admits BEST_RANKING (descendant order)
-        - onlyOpen: if =true, fetches only the open restaurants
             
     - Example request: `GET /api/restaurants?point=-34.902224168739686,-56.16103165226303&offset=0&max=20&country=1&sortBy=BEST_RANKING&onlyOpen=true`
     
