@@ -62,7 +62,7 @@ describe('App', () => {
                 .expect(403);
         });
 
-        it('should return 403 when the client app credentials are not valid', async () => {
+        it('should return 401 when the user credentials are not valid', async () => {
             nock(process.env.CLIENT_BASE_URL)
                 .get('/tokens/?clientId=testClient&clientSecret=testSecret')
                 .reply(200, {"access_token": "test_app_token"});
@@ -141,7 +141,7 @@ describe('App', () => {
 
     describe('Restaurants', () => {
 
-        it('should return 403 when the user credentials are not valid', async (done) => {
+        it('should return a restaurants list for a valid request', async (done) => {
             nock(process.env.CLIENT_BASE_URL)
                 .matchHeader('Authorization', 'test_user_token')
                 .get('/search/restaurants?point=-34.90818970423305,-56.16440444969547&offset=0&country=1&fields=id, name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates, opened')
