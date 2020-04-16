@@ -1,4 +1,12 @@
-import {expireAsync, getAsync, hmsetAsync, keysAsync, mgetAsync, setAsync} from "../data/RedisClient";
+import {
+    expireAsync,
+    getAsync,
+    hkeysAsync,
+    hmsetAsync,
+    keysAsync,
+    mgetAsync,
+    setAsync
+} from "../data/RedisClient";
 import crypto from "crypto";
 import {generateGetUserKey, generateSetUserKey} from "../utils";
 
@@ -11,6 +19,10 @@ export default class CacheService {
             JSON.stringify(params)
         );
         await expireAsync('SEARCH', ttl);
+    }
+
+    static getLastRestaurantSearches() {
+        return hkeysAsync('SEARCH');
     }
 
     static async getRestaurantsFromCache(point) {
