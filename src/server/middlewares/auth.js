@@ -1,16 +1,8 @@
-import {getAsync} from "../data/RedisClient";
-import crypto from 'crypto';
-import {generateGetUserKey} from "../utils";
-
-async function getUserFromCache(token) {
-    const encryptedToken = crypto.createHmac('sha256', token).digest('hex');
-    const key = await generateGetUserKey(encryptedToken);
-    return await getAsync(key);
-}
+import CacheService from "../services/CacheService";
 
 const authMiddleware = async (req, res, next) => {
     try {
-        const user = await getUserFromCache(req.headers.authorization);
+        const user = await CacheService.getUserFromCacheBySecret(req.headers.authorization);
         if(!user) {
             return res.sendStatus(401);
         }

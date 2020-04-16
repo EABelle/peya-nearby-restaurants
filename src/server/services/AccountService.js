@@ -9,7 +9,6 @@ export default class AccountService {
 
     static async getLoggedInAccounts() {
         const sessions = await CacheService.getLoggedInAccounts();
-        const users = new Map(sessions.map(({id, ...session}) => [id, {id, ...session}]));
-        return [...users.values()];
+        return sessions.map(({userToken, ...userData}) => userData);
     }
 }
