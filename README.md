@@ -19,7 +19,12 @@ Also, as you'll need **docker-compose** to run it with the Redis container:
 - CLIENT_BASE_URL: The external url of PedidosYa API.
 - CLIENT_ID: Provided by PedidosYa in order to get an app token.
 - CLIENT_SECRET: Provided by PedidosYa in order to get an app token.
+- REDIS_BASE_URL: The base url for the redis connection
+- REDIS_PORT: The port for the redis connection
 - REACT_APP_MAPS_API_KEY: Google API key with permissions to be used by Google Maps.
+- REACT_APP_CLIENT_BASE_URL: The url of the node server provided to react http client
+- PORT: The expose port for the Node server
+- DOCKER_COMPOSE_SERVER_PORTS: The ports of the node server which are binded in the docker-compose
 
 You may use a `.env` named file like the following, at the root of your working tree, to provide the variables to the app:
 
@@ -29,7 +34,11 @@ You may use a `.env` named file like the following, at the root of your working 
 CLIENT_BASE_URL=http://anURL/
 CLIENT_ID=test
 CLIENT_SECRET=test
+REDIS_BASE_URL=redis
 REACT_APP_MAPS_API_KEY=a_google_maps_API_key
+REACT_APP_CLIENT_BASE_URL=http://localhost:3003/api
+PORT=3003
+DOCKER_COMPOSE_SERVER_PORTS=3003:3003
 ```
 
 **The above configuration exposes the API to `http://localhost:3001/` and the frontend to `http://localhost:80/`*

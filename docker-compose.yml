@@ -17,7 +17,7 @@ services:
     env_file:
       - .env
     ports:
-      - 3001:3001
+      - "${DOCKER_COMPOSE_SERVER_PORTS}"
     depends_on:
       - redis
   redis:
