@@ -40,7 +40,7 @@ export default class RestaurantsService {
         await expireAsync('SEARCH', ttl);
     }
 
-    static async getRestaurants(params, cacheTTL) {
+    static async getRestaurants(params, token, cacheTTL) {
 
         const {
             point,
@@ -61,7 +61,7 @@ export default class RestaurantsService {
             offset,
             country,
             fields,
-        });
+        }, token);
 
         const restaurants = response.data;
         await CacheService

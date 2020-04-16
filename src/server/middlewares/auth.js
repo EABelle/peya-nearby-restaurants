@@ -1,5 +1,4 @@
 import {getAsync} from "../data/RedisClient";
-import appClient from "../httpClients";
 import crypto from 'crypto';
 import {generateGetUserKey} from "../utils";
 
@@ -16,7 +15,6 @@ const authMiddleware = async (req, res, next) => {
             return res.sendStatus(401);
         }
         req.user = {...JSON.parse(user), userToken: req.headers.authorization};
-        appClient.defaults.headers.Authorization = req.user.userToken;
         return next();
     } catch(e) {
         return res.sendStatus(401);
