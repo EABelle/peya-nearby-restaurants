@@ -2,6 +2,8 @@ import Axios from "axios";
 import config from "./config";
 import Cookies from 'universal-cookie';
 
+const countries = { URUGUAY: 1 };
+
 const cookies = new Cookies();
 
 const axios = Axios.create({
@@ -9,7 +11,7 @@ const axios = Axios.create({
 });
 
 
-async function getRestaurants(point, offset = 0, max = 20, country = 1, sortBy = 'BEST_RANKING', onlyOpen=true) {
+async function getRestaurants(point, offset = 0, max = 20, country = countries.URUGUAY, sortBy = 'BEST_RANKING', onlyOpen=true) {
   const response = await axios.get('/restaurants', {
     params: {
       point,

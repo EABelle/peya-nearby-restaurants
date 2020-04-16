@@ -12,11 +12,6 @@ export default class CacheService {
         await expireAsync(`RESTAURANTS_${point}`, ttl);
     }
 
-    static async getLoggedInAccount(key) {
-        const user = await getAsync(key);
-        return JSON.parse(user);
-    }
-
     static async getLoggedInAccounts() {
         const keys = await keysAsync('USER_*');
         const accounts = await mgetAsync(keys);

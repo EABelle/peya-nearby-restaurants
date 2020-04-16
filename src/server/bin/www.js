@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import app from '../app';
-import debug from 'debug';
 import http from 'http';
 
 const port = process.env.PORT || '3000';
@@ -13,5 +12,7 @@ server.listen(port);
 server.on('listening', onListening);
 
 function onListening() {
-  debug('Listening on ' + port);
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Listening on ' + port);
+  }
 }

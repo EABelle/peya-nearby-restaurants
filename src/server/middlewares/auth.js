@@ -3,11 +3,15 @@ import appClient from "../httpClients";
 import crypto from 'crypto';
 import {generateGetUserKey} from "../utils";
 
+async function getUserFromCache(token) {
+    const encryptedToken = crypto.createHmac('sha256', token).digest('hex');
+    const key = await generateGetUserKey(encryptedToken);
+    return await getAsync(key);
+}
+
 const authMiddleware = async (req, res, next) => {
+    const user = await getUserFromCache(req.headers.authorization);
     try {
-        const userKey = req.headers.authorization;
-        const encryptedKey = crypto.createHmac('sha256', userKey).digest('hex');
-        const user = await getAsync(await generateGetUserKey(encryptedKey));
         if(!user) {
             return res.sendStatus(401);
         }

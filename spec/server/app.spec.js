@@ -7,15 +7,29 @@ import request from 'supertest';
 import nock from 'nock';
 import {validRestaurantsAPIResponse1, validRestaurantsResponse1} from "./__mocks__/restaurants";
 
+process.env.CLIENT_BASE_URL = 'http://test-api.pedidosya.com/';
+process.env.CLIENT_ID = 'testClient';
+process.env.CLIENT_SECRET = 'testSecret';
+function mockLogin() {
+    nock(process.env.CLIENT_BASE_URL)
+        .get('/tokens/?clientId=testClient&clientSecret=testSecret')
+        .reply(200, {"access_token": "test_app_token"});
+    nock(process.env.CLIENT_BASE_URL)
+        .matchHeader('Authorization', 'test_app_token')
+        .get('/tokens/?userName=test@test.com&password=test_password')
+        .reply(200, {"access_token": "test_user_token"});
+    nock(process.env.CLIENT_BASE_URL)
+        .matchHeader('Authorization', 'test_user_token')
+        .get('/myAccount')
+        .reply(200, {"id": 3797223, "lastName": "Automation", "name": "Test", "country": {"id": 1}});
+
+}
 
 describe('App', () => {
 
     beforeEach(() => {
         jest.resetModules();
         nock.cleanAll();
-        process.env.CLIENT_BASE_URL = 'http://test-api.pedidosya.com/';
-        process.env.CLIENT_ID = 'testClient';
-        process.env.CLIENT_SECRET = 'testSecret';
     });
 
     afterEach(() => {
@@ -66,18 +80,7 @@ describe('App', () => {
         });
 
         it('should return a user token when the user credentials are valid', async (done) => {
-            nock(process.env.CLIENT_BASE_URL)
-                .get('/tokens/?clientId=testClient&clientSecret=testSecret')
-                .reply(200, {"access_token": "test_app_token"});
-            nock(process.env.CLIENT_BASE_URL)
-                .matchHeader('Authorization', 'test_app_token')
-                .get('/tokens/?userName=test@test.com&password=test_password')
-                .reply(200, {"access_token": "test_user_token"});
-            nock(process.env.CLIENT_BASE_URL)
-                .matchHeader('Authorization', 'test_user_token')
-                .get('/myAccount')
-                .reply(200, {"id": 3797223, "lastName": "Automation", "name": "Test", "country": {"id": 1}});
-
+            mockLogin();
             await request(app)
                 .post('/api/login/')
                 .send({
@@ -95,12 +98,19 @@ describe('App', () => {
 
     describe('MyAccount', () => {
 
-
         it('should return the logged in account when the user credentials are valid', async (done) => {
             nock(process.env.CLIENT_BASE_URL)
                 .matchHeader('Authorization', 'test_user_token')
                 .get('/myAccount')
                 .reply(200, {"id": 3797223, "lastName": "Automation", "name": "Test", "country": {"id": 1}});
+
+            mockLogin();
+            await request(app)
+                .post('/api/login/')
+                .send({
+                    "userName": "test@test.com",
+                    "password": "test_password"
+                });
 
             await request(app)
                 .get('/api/myAccount/')

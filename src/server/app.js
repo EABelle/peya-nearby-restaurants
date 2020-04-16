@@ -28,10 +28,10 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use(setRestaurantsTTL);
-app.use('/api/statistics', staticsRouter);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', authMiddleware, myAccountRouter);
-app.use('/api/restaurants', authMiddleware, setRestaurantsSearchToCache, getRestaurantsFromCache, restaurantsRouter, setRestaurantsToCache);
+app.use('/api/restaurants', authMiddleware, restaurantsRouter);
+app.use('/api/statistics', authMiddleware, staticsRouter);
 app.use('/api/config', authMiddleware, configRouter);
 
 // catch 404 and forward to error handler

@@ -1,26 +1,16 @@
 import RestaurantsService from "../services/RestaurantsService";
 
-const DEFAULT_FIELDS = 'id, name, topCategories, rating, logo, deliveryTimeMaxMinutes, link, coordinates, opened';
-
-function getRestaurants(req, res, next) {
-    if(res.locals.restaurants) {
-        return next();
+async function getRestaurants(req, res) {
+    const { point } = req.query;
+    if(!point) {
+        return res.sendStatus(400);
     }
-    const { point, offset, country, fields } = req.query;
-    return RestaurantsService.getRestaurants({
-        point,
-        offset: offset || 0,
-        country: country || 1,
-        fields: fields || DEFAULT_FIELDS
-    })
-        .then(response => {
-            res.locals.restaurants = response;
-            next();
-        })
-        .catch((error) => {
-            console.log(error)
-            return res.sendStatus(500);
-        });
+    try {
+        const response = await RestaurantsService.getRestaurants(req.query, req.restaurantsTTL);
+        return res.status(200).send(response);
+    } catch(e) {
+        return res.sendStatus(500);
+    }
 }
 
 export default { getRestaurants };
