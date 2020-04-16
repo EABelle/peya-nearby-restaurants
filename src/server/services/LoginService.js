@@ -11,7 +11,6 @@ export default class LoginService {
         const user = await AccountService.getAccount(userToken);
         const userFromCache = await CacheService.getUserFromCacheById(user.id);
         if (userFromCache) {
-            console.log(userFromCache);
             return userFromCache.userToken;
         }
         await CacheService.saveUserToCache(userToken, user);

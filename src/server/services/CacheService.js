@@ -10,9 +10,12 @@ import {
 import crypto from "crypto";
 import {generateGetUserKey, generateSetUserKey} from "../utils";
 
+const ONE_MINUTE = 60;
+const ONE_HOUR = 60 * 60;
+
 export default class CacheService {
 
-    static async saveSearchToCache(params, ttl = 60 * 60) {
+    static async saveSearchToCache(params, ttl = ONE_HOUR) {
         await hmsetAsync(
             'SEARCH',
             params.point,
@@ -30,7 +33,7 @@ export default class CacheService {
         return JSON.parse(restaurants);
     }
 
-    static async setRestaurantsToCache(point, restaurants, ttl = 60) {
+    static async setRestaurantsToCache(point, restaurants, ttl = ONE_MINUTE) {
         await setAsync(`RESTAURANTS_${point}`, JSON.stringify(restaurants));
         await expireAsync(`RESTAURANTS_${point}`, ttl);
     }
@@ -57,10 +60,10 @@ export default class CacheService {
         return JSON.parse(user);
     }
 
-    static async saveUserToCache(token, user) {
+    static async saveUserToCache(token, user, ttl = ONE_HOUR) {
         const encryptedToken = crypto.createHmac('sha256', token).digest('hex');
         const userKey = generateSetUserKey(encryptedToken, user.id);
         await setAsync(userKey, JSON.stringify({userToken: token, ...user}));
-        await expireAsync(userKey, 60 * 60 * 24);
+        await expireAsync(userKey, ttl);
     }
 }

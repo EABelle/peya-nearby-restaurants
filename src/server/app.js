@@ -27,10 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use(setRestaurantsTTL);
 app.use('/api/login', authRouter);
 app.use('/api/myAccount', authMiddleware, myAccountRouter);
-app.use('/api/restaurants', authMiddleware, restaurantsRouter);
+app.use('/api/restaurants', authMiddleware, setRestaurantsTTL, restaurantsRouter);
 app.use('/api/statistics', authMiddleware, staticsRouter);
 app.use('/api/config', authMiddleware, configRouter);
 

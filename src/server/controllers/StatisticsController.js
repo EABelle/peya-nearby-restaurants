@@ -7,7 +7,6 @@ async function getStatistics(req, res) {
         const lastRestaurantSearches = await CacheService.getLastRestaurantSearches();
         return res.send({loggedInAccounts, lastRestaurantSearches});
     } catch(e) {
-        console.log(e);
         return res.sendStatus(500);
     }
 }
