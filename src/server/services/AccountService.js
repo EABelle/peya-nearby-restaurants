@@ -8,7 +8,8 @@ export default class AccountService {
     }
 
     static async getLoggedInAccounts() {
-        const keys = await CacheService.getLoggedInAccountKeys();
-        return await Promise.all(keys.map( key => CacheService.getLoggedInAccount(key)));
+        const sessions = await CacheService.getLoggedInAccounts();
+        const users = new Map(sessions.map(({id, ...session}) => [id, {id, ...session}]));
+        return [...users.values()];
     }
 }

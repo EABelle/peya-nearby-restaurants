@@ -1,4 +1,4 @@
-import {expireAsync, getAsync, keysAsync, setAsync} from "../data/RedisClient";
+import {expireAsync, getAsync, keysAsync, mgetAsync, setAsync} from "../data/RedisClient";
 
 export default class CacheService {
 
@@ -17,7 +17,9 @@ export default class CacheService {
         return JSON.parse(user);
     }
 
-    static getLoggedInAccountKeys() {
-        return keysAsync('USER_*');
+    static async getLoggedInAccounts() {
+        const keys = await keysAsync('USER_*');
+        const accounts = await mgetAsync(keys);
+        return accounts.map(account => JSON.parse(account));
     }
 }

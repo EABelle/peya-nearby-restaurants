@@ -14,5 +14,6 @@ export const setAsync = promisify(client.set).bind(client);
 export const keysAsync = promisify(client.keys).bind(client);
 export const hmsetAsync = promisify(client.hmset).bind(client);
 export const expireAsync = promisify(client.expire).bind(client);
+export const mgetAsync = promisify(client.mget).bind(client);
 
 export default client;
